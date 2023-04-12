@@ -1,0 +1,14 @@
+package com.valueit.device.service;
+
+import com.valueit.device.domaine.EntrepriseVo;
+
+import java.util.List;
+
+public interface IEntrepriseService {
+    List<EntrepriseVo> getAll();
+    void save(EntrepriseVo entrepriseVo);
+    EntrepriseVo getById(Long id);
+    void deleteById(Long id);
+    void deleteAll();
+    List<EntrepriseVo> findByNameEntreprise(String name);
+}

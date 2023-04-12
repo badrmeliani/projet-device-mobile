@@ -1,0 +1,1 @@
+--insert into device (NUM_SRIE,marque,modele) VALUES(1,'marque1','modele1')
