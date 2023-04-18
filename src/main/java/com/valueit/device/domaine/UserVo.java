@@ -20,7 +20,7 @@ public class UserVo implements UserDetails {
     private Long id;
     private Boolean accountNonExpired;
 
-    private String userName;
+    private String username;
 //    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotEmpty
     private String password;
@@ -33,7 +33,7 @@ public class UserVo implements UserDetails {
     private List<RoleVo> roles = new ArrayList<RoleVo>();
     public UserVo(String username, String password, List<RoleVo> roles, boolean accountNonExpired,
                   boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
-        this.userName = username;
+        this.username = username;
         this.password = password;
         this.roles = roles;
         this.accountNonExpired=accountNonExpired;
@@ -49,7 +49,7 @@ public class UserVo implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.userName;
+        return this.username;
     }
 
     @Override
