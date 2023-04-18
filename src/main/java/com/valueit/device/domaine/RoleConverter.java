@@ -15,6 +15,7 @@ public class RoleConverter {
         RoleVo vo = new RoleVo();
         vo.setId(bo.getId());
         vo.setRole(bo.getRole());
+        vo.setPrivileges(PrivilegeConverter.toVoList(bo.getPrivileges()));
         return vo;
     }
 
@@ -24,6 +25,7 @@ public class RoleConverter {
         Role bo = new Role();
         bo.setId(vo.getId());
         bo.setRole(vo.getRole());
+        bo.setPrivileges(PrivilegeConverter.toBoList(vo.getPrivileges()));
         return bo;
     }
     private static Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {

@@ -15,7 +15,7 @@ public class UserConverter {
             return null;
         UserVo vo = new UserVo();
         vo.setId(bo.getId());
-        vo.setUserName(bo.getUserName());
+        vo.setUsername(bo.getUsername());
         vo.setPassword(bo.getPassword());
 
         vo.setRoles(RoleConverter.toVoList(bo.getRoles()));
@@ -37,7 +37,7 @@ public class UserConverter {
         User bo = new User();
         if (vo.getId() != null)
             bo.setId(vo.getId());
-        bo.setUserName(vo.getUsername());
+        bo.setUsername(vo.getUsername());
         bo.setPassword(vo.getPassword());
         bo.setRoles(RoleConverter.toBoList(vo.getRoles()));
         bo.setRoles(RoleConverter.toBoList(vo.getRoles()));

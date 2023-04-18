@@ -56,15 +56,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().authenticationEntryPoint(unauthorizedHandler);
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/").permitAll();
-        http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/auth/**").permitAll();
-        http.authorizeRequests().antMatchers("/admin/role").hasAnyAuthority("ADMIN");
-
-        http.authorizeRequests().antMatchers("/welcome").permitAll();
-        http.authorizeRequests().antMatchers("/admin/**").hasAuthority("ADMIN");
-        http.authorizeRequests().antMatchers("/admin/user/view").hasAuthority("CHEF");
-        http.authorizeRequests().anyRequest().authenticated();
-        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+//        http.authorizeRequests().antMatchers("/login").permitAll();
+//        http.authorizeRequests().antMatchers("/auth/**").permitAll();
+//        http.authorizeRequests().antMatchers("/admin/role").hasAnyAuthority("ADMIN");
+//
+//        http.authorizeRequests().antMatchers("/welcome").permitAll();
+//        http.authorizeRequests().antMatchers("/admin/**").hasAuthority("ADMIN");
+//        http.authorizeRequests().antMatchers("/admin/user/view").hasAuthority("CHEF");
+//        http.authorizeRequests().anyRequest().authenticated();
+//        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
