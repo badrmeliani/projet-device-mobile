@@ -144,7 +144,7 @@ public class UserServiceImp implements IUserService {
         if (username == null || username.trim().equals(""))
             throw new BusinessException("login is empty !!");
 
-        User bo = userRepository1.findByUserName(username);
+        User bo = userRepository1.findByUsername(username);
 
         if (bo == null)
             throw new BusinessException("No user with this login");
@@ -157,6 +157,6 @@ public class UserServiceImp implements IUserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return UserConverter.toVo(userRepository1.findByUserName(username));
+        return UserConverter.toVo(userRepository1.findByUsername(username));
     }
 }

@@ -36,6 +36,13 @@ public class UserRestController {
     List<RoleVo> getAllRoles() {
         return iUserService.getAllRoles();
     }
+     @GetMapping(value = "/admin/user/{username}")
+    UserVo findByUsername( @PathVariable(name = "username") String username) {
+        return iUserService.findByUsername(username);
+
+    }
+
+
 
 
 
@@ -44,6 +51,7 @@ public class UserRestController {
         iUserService.save(roleVo);
         return new ResponseEntity<>("Role is create", HttpStatus.CREATED);
     }
+
 //
 //    @PostMapping(value = "/addRoleToUserName")
 //    public void save(@Valid @RequestBody RoleUserForm roleUserForm) {
