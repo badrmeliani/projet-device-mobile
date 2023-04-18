@@ -23,13 +23,20 @@ public class UserConverter {
         vo.setAccountNonLocked(bo.isAccountNonLocked());
         vo.setCredentialsNonExpired(bo.isCredentialsNonExpired());
         vo.setEnabled(bo.isEnabled());
+        List<GrantedAuthority> grantedAuthoritiesList = new ArrayList<>();
+        bo.getRoles().forEach(role -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(role.getRole())));
+        bo.getRoles().forEach(r -> r.getPrivileges()
+                .forEach(p -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(p.getPrivilege()))));
+
+        grantedAuthoritiesList.forEach(g->vo.getRoles().add(new RoleVo(g.getAuthority())));
+
         return vo;
     }
-    private static Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
-        List<GrantedAuthority> springSecurityAuthorities = new ArrayList<>();
-        roles.forEach(r -> springSecurityAuthorities.add(new SimpleGrantedAuthority(r.getRole())));
-        return springSecurityAuthorities;
-    }
+//    private static Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
+//        List<GrantedAuthority> springSecurityAuthorities = new ArrayList<>();
+//        roles.forEach(r -> springSecurityAuthorities.add(new SimpleGrantedAuthority(r.getRole())));
+//        return springSecurityAuthorities;
+//    }
 
     public static User toBo(UserVo vo) {
         if (vo == null)

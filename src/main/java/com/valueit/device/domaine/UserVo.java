@@ -18,18 +18,19 @@ import java.util.List;
 @ToString
 public class UserVo implements UserDetails {
     private Long id;
-    private Boolean accountNonExpired;
+
 
     private String username;
 //    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotEmpty
     private String password;
-    private  Collection<? extends GrantedAuthority> authorities = new ArrayList<>();
+
     private Boolean accountNonLocked;
     private boolean credentialsNonExpired;
     private Boolean enabled;
+    private Boolean accountNonExpired;
 
-
+    private  Collection<? extends GrantedAuthority> authorities = new ArrayList<>();
     private List<RoleVo> roles = new ArrayList<RoleVo>();
     public UserVo(String username, String password, List<RoleVo> roles, boolean accountNonExpired,
                   boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {

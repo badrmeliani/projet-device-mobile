@@ -16,18 +16,18 @@ import java.util.List;
 public class EntrepriseRestController {
     @Autowired
     IEntrepriseService entrepriseServiceImp;
-    @GetMapping(value = "rest/entreprise", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "superadmin/entreprise", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 
     List<EntrepriseVo> getAll(){
         return entrepriseServiceImp.getAll();
     }
-    @PostMapping(value = "/rest/entreprise")
+    @PostMapping(value = "/superadmin/entreprise")
 
     ResponseEntity<Object> createUser(@RequestBody @Valid EntrepriseVo entrepriseVo) {
         entrepriseServiceImp.save(entrepriseVo);
         return new ResponseEntity<>("entreprise is create", HttpStatus.CREATED);
     }
-    @DeleteMapping(value = "/rest/entreprise/{id}")
+    @DeleteMapping(value = "/superadmin/entreprise/{id}")
 
     ResponseEntity<Object> deleteById(@PathVariable(name = "id") Long id) {
         EntrepriseVo found = entrepriseServiceImp.getById(id);
@@ -35,7 +35,7 @@ public class EntrepriseRestController {
         entrepriseServiceImp.deleteById(id);
         return new ResponseEntity<>("delete",HttpStatus.ACCEPTED);
     }
-    @PutMapping(value = "/rest/entreprise/{id}")
+    @PutMapping(value = "/superadmin/entreprise/{id}")
 
     public ResponseEntity<Object> updatedevice(@PathVariable(name = "id") Long entrepriseId, @RequestBody EntrepriseVo entrepriseVo) {
         EntrepriseVo entrepriseVo1 = entrepriseServiceImp.getById(entrepriseId);
