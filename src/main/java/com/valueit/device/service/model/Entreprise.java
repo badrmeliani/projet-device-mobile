@@ -1,7 +1,5 @@
 package com.valueit.device.service.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,7 +24,7 @@ public class Entreprise {
     @Transient
     private Date date_creation;
 
-    public Entreprise(String nom, String adresse, int capitale, String fondateur) {
+    public Entreprise(Long id, String nom, String adresse, int capitale, String fondateur, Date dateCreation) {
         this.nom = nom;
         this.adresse = adresse;
         this.capitale = capitale;

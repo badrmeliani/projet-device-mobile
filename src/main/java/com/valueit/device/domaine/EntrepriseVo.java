@@ -1,5 +1,4 @@
 package com.valueit.device.domaine;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +15,7 @@ public class EntrepriseVo {
     private String fondateur;
     private Date date_creation;
 
-    public EntrepriseVo(String nom, String adresse, int capitale, String fondateur) {
+    public EntrepriseVo(String nom, String adresse, int capitale, String fondateur, Date dateCreation) {
         this.nom = nom;
         this.adresse = adresse;
         this.capitale = capitale;
