@@ -150,8 +150,7 @@ public class UserServiceImp implements IUserService {
         if (bo == null)
             throw new BusinessException("No user with this login");
 
-        UserVo vo = UserConverter.toVo(bo);
-        return vo;
+        return UserConverter.toVo(bo);
 
     }
 

@@ -1,4 +1,5 @@
 package com.valueit.device.domaine;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

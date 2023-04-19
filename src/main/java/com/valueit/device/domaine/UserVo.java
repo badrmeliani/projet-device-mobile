@@ -1,10 +1,7 @@
 package com.valueit.device.domaine;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -41,6 +38,7 @@ public class UserVo implements UserDetails {
         this.accountNonLocked=accountNonLocked;
         this.credentialsNonExpired=credentialsNonExpired;
         this.enabled=enabled;
+
     }
 
     @Override

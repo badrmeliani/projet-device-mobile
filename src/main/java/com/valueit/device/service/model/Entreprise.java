@@ -1,6 +1,7 @@
 package com.valueit.device.service.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -31,6 +32,11 @@ public class Entreprise {
         this.capitale = capitale;
         this.fondateur = fondateur;
     }
+
+    public Entreprise(String nom) {
+        this.nom = nom;
+    }
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "entreprise",cascade = {CascadeType.MERGE,CascadeType.PERSIST} )
     private List<Device> devices = new ArrayList<>();
 
