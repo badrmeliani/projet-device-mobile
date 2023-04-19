@@ -28,7 +28,7 @@ public class UserConverter {
         bo.getRoles().forEach(r -> r.getPrivileges()
                 .forEach(p -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(p.getPrivilege()))));
 
-        grantedAuthoritiesList.forEach(g->vo.getRoles().add(new RoleVo(g.getAuthority())));
+        grantedAuthoritiesList.forEach(g->vo.getRoles().add(new RoleVo(g.getAuthority(), g.getAuthority())));
 
         return vo;
     }
@@ -42,7 +42,7 @@ public class UserConverter {
         if (vo == null)
             return null;
         User bo = new User();
-        if (vo.getId() != null)
+
             bo.setId(vo.getId());
         bo.setUsername(vo.getUsername());
         bo.setPassword(vo.getPassword());

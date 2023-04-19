@@ -1,6 +1,7 @@
 package com.valueit.device;
 
 
+import com.valueit.device.domaine.DeviceVo;
 import com.valueit.device.domaine.PrivilegeVo;
 import com.valueit.device.domaine.RoleVo;
 import com.valueit.device.domaine.UserVo;
@@ -21,8 +22,7 @@ import java.util.Arrays;
 
 @SpringBootApplication
 public class DeviceApplication implements CommandLineRunner {
-	@Autowired
-	BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	@Autowired
 	private IUserService userService;
 	@Autowired
@@ -39,19 +39,20 @@ public class DeviceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+//	  userService.cleanDataBase();
+//
 		PrivilegeVo privilege1 = new PrivilegeVo("create_article");
 		PrivilegeVo privilege2 = new PrivilegeVo("delete_article");
 		PrivilegeVo privilege3 = new PrivilegeVo("update_article");
 		PrivilegeVo privilege4 = new PrivilegeVo("read_article");
+		RoleVo roleAdmin = new RoleVo("ADMIN","ADMIN") ;
+		RoleVo roleChef  = new RoleVo("CHEF","CHEF");
+//
+		userService.save(new RoleVo("ADMIN","ADMIN"));
+		userService.save(new RoleVo("CHEF","CHEF"));
+		userService.save(new RoleVo("EMP","EMP"));
 
-		userService.save(new RoleVo("ADMIN"));
-		userService.save(new RoleVo("CHEF"));
-		userService.save(new RoleVo("EMP"));
-
-		RoleVo roleAdmin = userService.getRoleByName("ADMIN");
-		RoleVo roleChef = userService.getRoleByName("CHEF");
-		RoleVo roleEmp = userService.getRoleByName("EMP");
+//
 		roleAdmin.setPrivileges(Arrays.asList(privilege1,privilege2,privilege3));
 		roleChef.setPrivileges(Arrays.asList(privilege4));
 
@@ -59,16 +60,19 @@ public class DeviceApplication implements CommandLineRunner {
 		UserVo admin2 = new UserVo("admin2", "admin2", Arrays.asList(roleAdmin),true,true,true,true);
 		UserVo chef1 = new UserVo("chef1", "chef1", Arrays.asList(roleChef),true,true,true,true);
 		UserVo chef2 = new UserVo("chef2", "chef2", Arrays.asList(roleChef),true,true,true,true);
-		UserVo Employee1 = new UserVo("chef1", "chef1", Arrays.asList(roleChef),true,true,true,true);
-		UserVo Employee2 = new UserVo("chef2", "chef2", Arrays.asList(roleChef),true,true,true,true);
-//		privilegeService.save(privilege1);
-//		privilegeService.save(privilege2);
-//		privilegeService.save(privilege3);
-//		privilegeService.save(privilege4);
+////		UserVo Employee1 = new UserVo("EMP", "chef1", Arrays.asList(roleEmp),true,true,true,true);
+////		UserVo Employee2 = new UserVo("EMP", "chef2", Arrays.asList(roleEmp),true,true,true,true);
+        		userService.save(privilege1);
+		userService.save(privilege2);
+		userService.save(privilege3);
+		userService.save(privilege4);
 		userService.save(admin1);
-		userService.save(admin2);
-		userService.save(chef1);
-		userService.save(Employee1);
+//		userService.save(admin2);
+//		userService.save(chef1);
+
+//
+//		iDeviceservices.save(new DeviceVo("test1","test2"));
+//		userService.save(Employee1);
 
 
 	}

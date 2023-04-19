@@ -2,18 +2,20 @@ package com.valueit.device.service.model;
 
 import lombok.Data;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "user")
 
@@ -26,10 +28,7 @@ public class User {
     @NotEmpty(message = "*Please provide an user name")
     private String username;
 
-    @Length(min = 5, message = "*Your an email")
-    @NotEmpty(message = "*Please provide an email")
-    @Email
-    private String email;
+
 
     @Length(min = 5, message = "*Your password must have at least 5 characters")
     @NotEmpty(message = "*Please provide your password")
@@ -43,10 +42,13 @@ public class User {
     private boolean credentialsNonExpired ;
     private boolean accountNonLocked;
 
-
-
-
-
-
-
+    public User(String username, String password, List<Role> roles, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+        this.enabled = enabled;
+        this.accountNonExpired = accountNonExpired;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.accountNonLocked = accountNonLocked;
+    }
 }

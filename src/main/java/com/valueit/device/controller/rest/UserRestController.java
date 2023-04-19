@@ -36,11 +36,11 @@ public class UserRestController {
     List<RoleVo> getAllRoles() {
         return iUserService.getAllRoles();
     }
-     @GetMapping(value = "/admin/user/{username}")
-    UserVo findByUsername( @PathVariable(name = "username") String username) {
-        return iUserService.findByUsername(username);
-
-    }
+//     @GetMapping(value = "/admin/user/{username}")
+//    UserVo findByUsername( String username) {
+//        return iUserService.findByUsername(username);
+//
+//    }
 
 
 
