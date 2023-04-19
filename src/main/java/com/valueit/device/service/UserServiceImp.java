@@ -31,38 +31,13 @@ public class UserServiceImp implements IUserService {
     @Autowired
     private PrivilegeRepository privilegeRepository;
 
-
-
-
     @Override
-
-    public void save(UserVo vo) {
-        User bo = UserConverter.toBo(vo);
-        bo.setPassword(passwordEncoder.encode(vo.getPassword()));
-        List<Role> roleList = new ArrayList<>();
-        bo.getRoles().forEach(r -> {
-//            Role rolePersist = roleRepository.findByRole(r.getRole());
-           List<Role> rolePersist = roleRepository.findByRole(r.getRole());
-            List<Privilege> privilegeList = new ArrayList<>();
-            if (rolePersist == null) {
-                r.getPrivileges().forEach(p -> {
-                    Privilege privilegePersist = privilegeRepository.findByPrivilege(p.getPrivilege());
-                    if (privilegePersist == null)
-                        privilegePersist = privilegeRepository.save(p);
-                    privilegeList.add(privilegePersist);
-
-                });
-                r.setPrivileges(privilegeList);
-                rolePersist = (List<Role>) roleRepository.save(r);
-            }
-            roleList.add((Role) rolePersist);
-        });
-        bo.setRoles(roleList);
-        userRepository1.save(bo);
-
-
+    public void save(PrivilegeVo vo) {
+        Privilege bo = PrivilegeConverter.toBo(vo);
+        Privilege privilegePersist = privilegeRepository.findByPrivilege(bo.getPrivilege());
+        if (privilegePersist == null)
+            privilegePersist = privilegeRepository.save(bo);
     }
-
 
     public void save(RoleVo vo) {
         Role bo = RoleConverter.toBo(vo);
@@ -83,18 +58,44 @@ public class UserServiceImp implements IUserService {
     }
 
     @Override
-    public void save(PrivilegeVo vo) {
-        Privilege bo = PrivilegeConverter.toBo(vo);
-        Privilege privilegePersist = privilegeRepository.findByPrivilege(bo.getPrivilege());
-        if (privilegePersist == null)
-            privilegePersist = privilegeRepository.save(bo);
+
+    public void save(UserVo vo) {
+        User bo = UserConverter.toBo(vo);
+        bo.setPassword(passwordEncoder.encode(vo.getPassword()));
+        List<Role> roleList = new ArrayList<>();
+        bo.getRoles().forEach(r -> {
+            Role rolePersist =roleRepository.findByRole2(r.getRole());
+//           List<Role> rolePersist = roleRepository.findByRole(r.getRole());
+            List<Privilege> privilegeList = new ArrayList<>();
+            if (rolePersist == null) {
+                r.getPrivileges().forEach(p -> {
+                    Privilege privilegePersist = privilegeRepository.findByPrivilege(p.getPrivilege());
+                    if (privilegePersist == null)
+                        privilegePersist = privilegeRepository.save(p);
+                    privilegeList.add(privilegePersist);
+
+                });
+                r.setPrivileges(privilegeList);
+                rolePersist =  roleRepository.save(r);
+            }
+            roleList.add((Role) rolePersist);
+        });
+        bo.setRoles(roleList);
+        userRepository1.save(bo);
+
+
     }
 
 
-//    public RoleVo findByRole(String role) {
-//      List<Role> findRole = roleRepository.findByRole(role);
-//      return RoleConverter.toVoList(findRole);
-//    }
+
+
+
+
+
+    public List<RoleVo> findByRole(String role) {
+      List<Role> findRole = roleRepository.findByRole(role);
+      return RoleConverter.toVoList(findRole);
+    }
 
     @Override
     public List<UserVo> getAllUsers() {
@@ -108,11 +109,11 @@ public class UserServiceImp implements IUserService {
         return RoleConverter.toVoList(roles);
     }
 
-    @Override
-    public RoleVo getRoleByName(String role) {
-        return RoleConverter.toVo(roleRepository.findByRole(role).get(0));
-
-    }
+//    @Override
+//    public RoleVo getRoleByName(String role) {
+//        return RoleConverter.toVo(roleRepository.findByRole(role).get(0));
+//
+//    }
 
 //    public void addRoleToUser(String role, String userName) {
 //        UserVo userVo = UserConverter.toVo(userRepository1.findByUserName(userName));
@@ -151,7 +152,9 @@ public class UserServiceImp implements IUserService {
 
         UserVo vo = UserConverter.toVo(bo);
         return vo;
+
     }
+
 
 
 

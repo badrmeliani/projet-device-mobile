@@ -20,12 +20,13 @@ import java.util.List;
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "role_id")
     private int id;
 
 private String role;
 
+private String role2;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "role_privilege", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "privilege_id"))
@@ -33,10 +34,14 @@ private String role;
     @ManyToMany(mappedBy = "roles")
     private List<User> users = new ArrayList<>();
 
-    public Role(String role) {
-        super();
+//    public Role(String role) {
+//        super();
+//
+//        this.role = role;
+//    }
 
+    public Role(String role, String role2) {
         this.role = role;
+        this.role2 = role2;
     }
-
 }

@@ -16,7 +16,6 @@ public class PrivilegeVo implements GrantedAuthority, Serializable {
          return this.privilege;
     }
     public PrivilegeVo(String privilege) {
-        super();
         this.privilege = privilege;
     }
 }

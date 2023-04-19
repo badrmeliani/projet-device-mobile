@@ -15,7 +15,7 @@ public class Privilege {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(unique = true)
+//    @Column(unique = true)
     private String privilege;
 
 

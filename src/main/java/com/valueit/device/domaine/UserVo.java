@@ -14,8 +14,8 @@ import java.util.Collection;
 import java.util.List;
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@ToString
+
+
 public class UserVo implements UserDetails {
     private Long id;
 
@@ -48,10 +48,7 @@ public class UserVo implements UserDetails {
         return this.authorities;
     }
 
-    @Override
-    public String getUsername() {
-        return this.username;
-    }
+
 
     @Override
     public boolean isAccountNonExpired() {

@@ -15,6 +15,7 @@ public class RoleConverter {
         RoleVo vo = new RoleVo();
         vo.setId(bo.getId());
         vo.setRole(bo.getRole());
+        vo.setRole2(bo.getRole2());
         vo.setPrivileges(PrivilegeConverter.toVoList(bo.getPrivileges()));
         return vo;
     }
@@ -25,16 +26,11 @@ public class RoleConverter {
         Role bo = new Role();
         bo.setId(vo.getId());
         bo.setRole(vo.getRole());
+        bo.setRole2(vo.getRole2());
         bo.setPrivileges(PrivilegeConverter.toBoList(vo.getPrivileges()));
         return bo;
     }
-    private static Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
-        List<GrantedAuthority> springSecurityAuthorities = new ArrayList<>();
-        for (Role r : roles) {
-            springSecurityAuthorities.add(new SimpleGrantedAuthority(r.getRole()));
-        }
-        return springSecurityAuthorities;
-    }
+
     public static List<RoleVo> toVoList(List<Role> boList) {
         List<RoleVo> voList = new ArrayList<>();
         for (Role role : boList) {
