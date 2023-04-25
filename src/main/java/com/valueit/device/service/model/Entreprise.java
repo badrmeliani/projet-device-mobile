@@ -24,11 +24,14 @@ public class Entreprise {
     @Transient
     private Date date_creation;
 
-    public Entreprise(Long id, String nom, String adresse, int capitale, String fondateur, Date dateCreation) {
+    public Entreprise(Long id, String nom, String adresse, int capitale, String fondateur, Date date_creation, List<Device> devices) {
+        this.id = id;
         this.nom = nom;
         this.adresse = adresse;
         this.capitale = capitale;
         this.fondateur = fondateur;
+        this.date_creation = date_creation;
+        this.devices = devices;
     }
 
     public Entreprise(String nom) {
@@ -37,5 +40,9 @@ public class Entreprise {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "entreprise",cascade = {CascadeType.MERGE,CascadeType.PERSIST} )
     private List<Device> devices = new ArrayList<>();
+    public void addDevice(Device device) {
+        devices.add(device);
+        device.setEntreprise(this);
+    }
 
 }

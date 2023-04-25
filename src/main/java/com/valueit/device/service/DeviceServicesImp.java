@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional
 
@@ -33,12 +35,10 @@ public class DeviceServicesImp implements IDeviceservices {
     }
 
     @Override
-
     public DeviceVo getById(Long id) {
-        Boolean trouver = deviceRepositoty.existsById(id);
-        if (!trouver) return  null;
-
-        return DeviceConverter.toVo(deviceRepositoty.findById(id).get());
+        Optional<Device> device = deviceRepositoty.findById(id);
+        return device.map(DeviceConverter::toVo)
+                .orElseThrow(() -> new IllegalArgumentException("Device not found with ID: " + id));
     }
 
     @Override

@@ -4,16 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="entreprise service class tests">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="retour à test mock en tant que">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_18_2023_11_42_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/dao/DeviceRepositoty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/dao/DeviceRepositoty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Entreprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Entreprise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/valueit/services/DeviceServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/valueit/services/DeviceServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/valueit/services/EntrepriseServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/valueit/services/EntrepriseServiceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/AuthenticationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/dao/DeviceRepositoty.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/dao/DeviceRepositoty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo$DeviceVoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo$DeviceVoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/DeviceServicesImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/DeviceServicesImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device$DeviceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device$DeviceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Entreprise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Entreprise.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/valueit/services/DeviceServiceTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/valueit/services/DeviceServiceTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,20 +65,20 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Downloads/spring-role-permissions-master&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "last_opened_file_path": "C:/Users/yasse/Music/projet-device-mobile old/projet-device-mobile",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\Desktop\mdm-projet-pfe\src\main\java\com\valueit\device\controller\rest" />
@@ -85,8 +94,8 @@
       <recent name="com.valueit" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DeviceServiceTests.testSortBy">
-    <configuration name="DeviceServiceTests.testSave" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DeviceServiceTests.testGetByIdNonExistingDevice">
+    <configuration name="DeviceServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="device" />
       <extension name="coverage">
         <pattern>
@@ -96,7 +105,54 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.valueit.services" />
       <option name="MAIN_CLASS_NAME" value="com.valueit.services.DeviceServiceTests" />
-      <option name="METHOD_NAME" value="testSave" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeviceServiceTests.testFindAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="device" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.valueit.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.valueit.services" />
+      <option name="MAIN_CLASS_NAME" value="com.valueit.services.DeviceServiceTests" />
+      <option name="METHOD_NAME" value="testFindAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeviceServiceTests.testGetByIdExistingDevice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="device" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.valueit.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.valueit.services" />
+      <option name="MAIN_CLASS_NAME" value="com.valueit.services.DeviceServiceTests" />
+      <option name="METHOD_NAME" value="testGetByIdExistingDevice" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeviceServiceTests.testGetByIdNonExistingDevice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="device" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.valueit.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.valueit.services" />
+      <option name="MAIN_CLASS_NAME" value="com.valueit.services.DeviceServiceTests" />
+      <option name="METHOD_NAME" value="testGetByIdNonExistingDevice" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,60 +174,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EntrepriseServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="device" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.valueit.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.valueit.services" />
-      <option name="MAIN_CLASS_NAME" value="com.valueit.services.EntrepriseServiceTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EntrepriseServiceTests.testDeleteAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="device" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.valueit.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.valueit.services" />
-      <option name="MAIN_CLASS_NAME" value="com.valueit.services.EntrepriseServiceTests" />
-      <option name="METHOD_NAME" value="testDeleteAll" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EntrepriseServiceTests.testFindByNameEntreprise" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="device" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.valueit.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.valueit.services" />
-      <option name="MAIN_CLASS_NAME" value="com.valueit.services.EntrepriseServiceTests" />
-      <option name="METHOD_NAME" value="testFindByNameEntreprise" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DeviceServiceTests.testGetByIdNonExistingDevice" />
+        <item itemvalue="JUnit.DeviceServiceTests.testGetByIdExistingDevice" />
+        <item itemvalue="JUnit.DeviceServiceTests" />
         <item itemvalue="JUnit.DeviceServiceTests.testSortBy" />
-        <item itemvalue="JUnit.DeviceServiceTests.testSave" />
-        <item itemvalue="JUnit.EntrepriseServiceTests" />
-        <item itemvalue="JUnit.EntrepriseServiceTests.testFindByNameEntreprise" />
-        <item itemvalue="JUnit.EntrepriseServiceTests.testDeleteAll" />
+        <item itemvalue="JUnit.DeviceServiceTests.testFindAll" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681913895484</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="retour à test mock en tant que">
+      <created>1682425685292</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682425685292</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,7 +272,8 @@
     <MESSAGE value="Test commit" />
     <MESSAGE value="commit testing" />
     <MESSAGE value="entreprise service class tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="entreprise service class tests" />
+    <MESSAGE value="retour à test mock en tant que" />
+    <option name="LAST_COMMIT_MESSAGE" value="retour à test mock en tant que" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -274,16 +291,6 @@
           <option name="timeStamp" value="28" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/DeviceRestController.java</url>
           <line>27</line>
           <option name="timeStamp" value="18" />
@@ -292,58 +299,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/DeviceRestController.java</url>
           <line>20</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/valueit/services/DeviceServiceTests.java</url>
-          <line>180</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/valueit/services/DeviceServiceTests.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/valueit/services/DeviceServiceTests.java</url>
-          <line>140</line>
-          <properties class="com.valueit.services.DeviceServiceTests" method="testFindAll">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>74</line>
-          <properties class="com.valueit.device.service.DeviceServicesImp" method="sortBy">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/valueit/services/DeviceServiceTests.java</url>
-          <line>162</line>
-          <properties class="com.valueit.services.DeviceServiceTests" method="testSortBy">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

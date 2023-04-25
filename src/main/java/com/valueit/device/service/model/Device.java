@@ -20,8 +20,10 @@ public class Device {
     @JoinColumn(name = "entreprise")
     private Entreprise entreprise;
 
-    public Device(long l, String marque, String modele, Entreprise valueIt) {
+    public Device(Long numSrie, String marque, String modele, Entreprise entreprise) {
+        this.numSrie = numSrie;
         this.marque = marque;
         this.modele = modele;
+        this.entreprise = entreprise;
     }
 }

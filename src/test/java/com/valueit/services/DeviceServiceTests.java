@@ -1,195 +1,191 @@
 package com.valueit.services;
 
 
+
 import com.valueit.device.dao.DeviceRepositoty;
 import com.valueit.device.domaine.DeviceConverter;
 import com.valueit.device.domaine.DeviceVo;
 import com.valueit.device.service.DeviceServicesImp;
-import com.valueit.device.service.IDeviceservices;
+
 import com.valueit.device.service.model.Device;
-import com.valueit.device.service.model.Entreprise;
 
 
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.when;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 
-//@RunWith(MockitoJUnitRunner.class)
+@RunWith(MockitoJUnitRunner.class)
+@SpringBootTest
 public class DeviceServiceTests {
 
-    @Autowired
-    private IDeviceservices deviceServicesImp;
+    @Mock
+    private DeviceRepositoty deviceRepository;
 
-    @Autowired
-    private DeviceRepositoty deviceRepositoty;
+    @InjectMocks
+    private DeviceServicesImp deviceServicesImp;
+
+    private List<Device> devices;
+    private Device device;
+    private DeviceVo deviceVo;
+
+
+    @Before
+    public void setUp() {
+        devices = Arrays.asList(
+                new Device(1L, "Samsung", "Galaxy S21", null),
+                new Device(2L, "Apple", "iPhone 12", null)
+        );
+        MockitoAnnotations.initMocks(this);
+        device = new Device(1L, "Samsung", "Galaxy S21",null);
+        deviceVo = new DeviceVo(1L, "Samsung", "Galaxy S21");
+    }
+
+
+    @After
+    public void tearDown() {
+        devices = null;
+        device = null;
+        deviceVo = null;
+    }
+
 
     @Test
-    public void testGetAll() {
-        List<Device> devices = new ArrayList<>();
-        Device device1 = new Device(1L, "Apple", "iPhone", new Entreprise("Value IT"));
-        Device device2 = new Device(2L, "Samsung", "Galaxy", new Entreprise("Value IT"));
-        devices.add(device1);
-        devices.add(device2);
+    public void testGetAllDevices() {
+        when(deviceRepository.findAll()).thenReturn(devices);
 
-        when(deviceRepositoty.findAll()).thenReturn(devices);
+        List<DeviceVo> deviceVoList = deviceServicesImp.getAll();
 
-        List<DeviceVo> deviceVos = deviceServicesImp.getAll();
-
-        assertEquals(deviceVos.size(), devices.size());
-        assertEquals(deviceVos.get(0).getMarque(), devices.get(0).getMarque());
-        assertEquals(deviceVos.get(0).getModele(), devices.get(0).getModele());
-        assertEquals(deviceVos.get(1).getMarque(), devices.get(1).getMarque());
-        assertEquals(deviceVos.get(1).getModele(), devices.get(1).getModele());
+        assertEquals(devices.size(), deviceVoList.size());
     }
     @Test
-    public void testSave() {
-        DeviceVo deviceVo = new DeviceVo(1L, "Apple", "iPhone");
-        Device device = new Device(1L, "Apple", "iPhone", new Entreprise("Value IT"));
-
-        when(deviceRepositoty.save(Mockito.any(Device.class))).thenReturn(device);
-
-        Device result = deviceServicesImp.save(deviceVo);
-
-        assertNotNull(result);
-        assertEquals(result.getMarque(), deviceVo.getMarque());
-        assertEquals(result.getModele(), deviceVo.getModele());
-    }
-    @Test
-    public void testGetById() {
-        // Create a sample entreprise object
-        Entreprise entreprise = new Entreprise("Value IT");
-
-        // Create a sample device object
-        Device device = new Device();
-        device.setNumSrie(1L);
-        device.setMarque("Apple");
-        device.setModele("iPhone");
-        device.setEntreprise(entreprise);
-
-        when(deviceRepositoty.findById(1L)).thenReturn(Optional.of(device));
+    public void testGetByIdExistingDevice() {
+        when(deviceRepository.findById(1L)).thenReturn(Optional.of(device));
 
         DeviceVo result = deviceServicesImp.getById(1L);
 
-        assertNotNull(result);
+        assertEquals(deviceVo, result);
+    }
 
-        assertEquals("Apple", result.getMarque());
-        assertEquals("iPhone", result.getModele());
+    @Test
+    public void testGetByIdNonExistingDevice() {
+        when(deviceRepository.findById(1L)).thenReturn(Optional.empty());
+
+        DeviceVo result = deviceServicesImp.getById(1L);
+
+        assertNull(result);
     }
     @Test
-    public void testFindByMarque() {
-        Device device1 = new Device(1L, "Apple", "iPhone", new Entreprise("Value IT"));
-        Device device2 = new Device(2L, "Apple", "iPad", new Entreprise("Value IT"));
-        List<Device> devices = Arrays.asList(device1, device2);
+    public void testSaveDevice() {
+        DeviceVo deviceVo = new DeviceVo();
+        deviceVo.setMarque("Huawei");
+        deviceVo.setModele("P40");
 
-        when(deviceRepositoty.findByMarque(Mockito.anyString())).thenReturn(devices);
+        when(deviceRepository.save(any(Device.class))).thenReturn(DeviceConverter.toBe(deviceVo));
 
-        List<DeviceVo> result = deviceServicesImp.findByMarque("Apple");
+        Device savedDevice = deviceServicesImp.save(deviceVo);
 
-        assertNotNull(result);
-        assertEquals(2, result.size());
+        assertNotNull(savedDevice);
+        assertEquals(deviceVo.getMarque(), savedDevice.getMarque());
+        assertEquals(deviceVo.getModele(), savedDevice.getModele());
+
     }
     @Test
-    public void testFindByModele() {
-        Device device1 = new Device(1L, "Apple", "iPhone", new Entreprise("Value IT"));
-        Device device2 = new Device(2L, "Samsung", "Galaxy", new Entreprise("Value IT"));
-        List<Device> devices = Arrays.asList(device1, device2);
+    public void testGetDevicesByMarque() {
+        String marque = "Samsung";
+        List<Device> marqueDevices = devices.stream().filter(device -> device.getMarque().equals(marque)).collect(Collectors.toList());
+        when(deviceRepository.findByMarque(marque)).thenReturn(marqueDevices);
 
-        when(deviceRepositoty.findByModele(Mockito.anyString())).thenReturn(devices);
+        List<DeviceVo> deviceVoList = deviceServicesImp.findByMarque(marque);
 
-        List<DeviceVo> result = deviceServicesImp.findByModele("Galaxy");
-
-        assertNotNull(result);
-        assertEquals(2, result.size());
+        assertEquals(marqueDevices.size(), deviceVoList.size());
     }
+    @Test
+    public void testGetDevicesByModele() {
+        String modele = "Galaxy S23";
+        List<Device> modeleDevices = devices.stream().filter(device -> device.getModele().equals(modele)).collect(Collectors.toList());
+        when(deviceRepository.findByModele(modele)).thenReturn(modeleDevices);
+
+        List<DeviceVo> deviceVoList = deviceServicesImp.findByModele(modele);
+
+        assertEquals(modeleDevices.size(), deviceVoList.size());
+    }
+
     @Test
     public void testDeleteById() {
-        Mockito.doNothing().when(deviceRepositoty).deleteById(Mockito.anyLong());
-
-        deviceServicesImp.deleteById(1L);
-
-        Mockito.verify(deviceRepositoty, Mockito.times(1)).deleteById(Mockito.anyLong());
+        Long idToDelete = 1L;
+        deviceServicesImp.deleteById(idToDelete);
+        verify(deviceRepository, times(1)).deleteById(idToDelete);
     }
+
     @Test
     public void testDeleteAll() {
-
-        Mockito.doNothing().when(deviceRepositoty).deleteAll();
-
-
         deviceServicesImp.deleteAll();
-
-
-        Mockito.verify(deviceRepositoty, Mockito.times(1)).deleteAll();
+        verify(deviceRepository, times(1)).deleteAll();
     }
+
     @Test
     public void testFindAll() {
-        Page<Device> page = new PageImpl<>(Arrays.asList(
-                new Device(1L, "Samsung", "Galaxy S21", new Entreprise("Value IT")),
-                new Device(2L, "Apple", "iPhone 12", new Entreprise("Value IT")),
-                new Device(3L, "Google", "Pixel 5", new Entreprise("Value IT"))
-        ));
+        int pageId = 0;
+        int size = 10;
+        Page<Device> devicesPage = new PageImpl<>(devices);
+        when(deviceRepository.findAll(PageRequest.of(pageId, size))).thenReturn(devicesPage);
 
-        when(deviceRepositoty.findAll(Mockito.any(PageRequest.class))).thenReturn(page);
+        List<DeviceVo> deviceVos = deviceServicesImp.findAll(pageId, size);
 
-        List<DeviceVo> result = deviceServicesImp.findAll(0, 3);
-
-        assertNotNull(result);
-        assertEquals(result.size(), 3);
-        assertEquals(result.get(0).getMarque(), "Samsung");
-        assertEquals(result.get(0).getModele(), "Galaxy S21");
-        assertEquals(result.get(1).getMarque(), "Apple");
-        assertEquals(result.get(1).getModele(), "iPhone 12");
-        assertEquals(result.get(2).getMarque(), "Google");
-        assertEquals(result.get(2).getModele(), "Pixel 5");
+        assertEquals(devices.size(), deviceVos.size());
+        for (int i = 0; i < devices.size(); i++) {
+            Device device = devices.get(i);
+            DeviceVo deviceVo = deviceVos.get(i);
+            assertEquals(device.getNumSrie(), deviceVo.getNumSrie());
+            assertEquals(device.getMarque(), deviceVo.getMarque());
+            assertEquals(device.getModele(), deviceVo.getModele());
+        }
     }
-
     @Test
     public void testSortBy() {
-        // create test devices
-        Device device1 =  new Device(1L, "Samsung", "Galaxy S21", new Entreprise("Value IT"));
-        Device device2 =  new Device(2L, "Google", "Pixel 5", new Entreprise("Value IT"));
-        Device device3 = new Device(2L, "Apple", "iPhone 12", new Entreprise("Value IT"));
+        String sortBy = "modele";
+        Sort sort = Sort.by(Sort.Direction.DESC, sortBy);
+        when(deviceRepository.findAll(sort)).thenReturn(devices);
 
-        // save devices to repository
-        deviceRepositoty.save(device1);
-        deviceRepositoty.save(device2);
-        deviceRepositoty.save(device3);
+        List<DeviceVo> deviceVos = deviceServicesImp.sortBy(sortBy);
 
-        DeviceVo deviceVo = new DeviceVo(1L, "Apple", "iPhone");
-        Device result = deviceServicesImp.save(deviceVo);
-
-
-       // deviceRepositoty.flush();
-
-        // sort devices by modele in descending order
-        List<DeviceVo> sortedDevices = deviceServicesImp.findAll(0,5);
-
-        // debug: print out sorted devices
-        System.out.println("Sorted Devices:");
-        for(DeviceVo device : sortedDevices) {
-            System.out.println(device.getModele());
+        assertEquals(devices.size(), deviceVos.size());
+        for (int i = 0; i < devices.size(); i++) {
+            Device device = devices.get(i);
+            DeviceVo deviceVo = deviceVos.get(i);
+            assertEquals(device.getNumSrie(), deviceVo.getNumSrie());
+            assertEquals(device.getMarque(), deviceVo.getMarque());
+            assertEquals(device.getModele(), deviceVo.getModele());
         }
-
-        // assert that the devices are sorted in descending order by modele
-        assertEquals("iPhone 12", sortedDevices.get(0).getModele());
-        assertEquals("Galaxy S21", sortedDevices.get(1).getModele());
-        assertEquals("Pixel 5", sortedDevices.get(2).getModele());
     }
-}
 
+
+}

@@ -13,7 +13,8 @@ public  class DeviceVo {
     private String marque;
     String modele;
 
-    public DeviceVo(long l, String marque, String modele) {
+    public DeviceVo(Long numSrie, String marque, String modele) {
+        this.numSrie = numSrie;
         this.marque = marque;
         this.modele = modele;
     }
