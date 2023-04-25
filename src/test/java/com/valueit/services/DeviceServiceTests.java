@@ -5,6 +5,7 @@ import com.valueit.device.dao.DeviceRepositoty;
 import com.valueit.device.domaine.DeviceConverter;
 import com.valueit.device.domaine.DeviceVo;
 import com.valueit.device.service.DeviceServicesImp;
+import com.valueit.device.service.IDeviceservices;
 import com.valueit.device.service.model.Device;
 import com.valueit.device.service.model.Entreprise;
 
@@ -15,6 +16,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -29,13 +31,13 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 public class DeviceServiceTests {
 
-    @InjectMocks
-    private DeviceServicesImp deviceServicesImp;
+    @Autowired
+    private IDeviceservices deviceServicesImp;
 
-    @Mock
+    @Autowired
     private DeviceRepositoty deviceRepositoty;
 
     @Test
@@ -168,10 +170,15 @@ public class DeviceServiceTests {
         deviceRepositoty.save(device1);
         deviceRepositoty.save(device2);
         deviceRepositoty.save(device3);
-        deviceRepositoty.flush();
+
+        DeviceVo deviceVo = new DeviceVo(1L, "Apple", "iPhone");
+        Device result = deviceServicesImp.save(deviceVo);
+
+
+       // deviceRepositoty.flush();
 
         // sort devices by modele in descending order
-        List<DeviceVo> sortedDevices = deviceServicesImp.sortBy("modele");
+        List<DeviceVo> sortedDevices = deviceServicesImp.findAll(0,5);
 
         // debug: print out sorted devices
         System.out.println("Sorted Devices:");
