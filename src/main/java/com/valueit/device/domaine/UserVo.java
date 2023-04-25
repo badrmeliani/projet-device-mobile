@@ -32,7 +32,7 @@ public class UserVo implements UserDetails {
 
     private  Collection<? extends GrantedAuthority> authorities = new ArrayList<>();
     private List<RoleVo> roles = new ArrayList<RoleVo>();
-    public UserVo(String username, String password, List<RoleVo> roles, boolean accountNonExpired,
+    public UserVo(String username, String password,  boolean accountNonExpired,
                   boolean accountNonLocked, boolean credentialsNonExpired, boolean enabled) {
         this.username = username;
         this.password = password;

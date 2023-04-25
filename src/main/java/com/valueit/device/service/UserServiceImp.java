@@ -41,7 +41,7 @@ public class UserServiceImp implements IUserService {
 
     public void save(RoleVo vo) {
         Role bo = RoleConverter.toBo(vo);
-        List<Role> rolePersist = roleRepository.findByRole(bo.getRole());
+       Role rolePersist = roleRepository.findByRole(bo.getRole());
         List<Privilege> privilegeList = new ArrayList<>();
         if (rolePersist == null) {
             vo.getPrivileges().forEach(p -> {
@@ -64,7 +64,7 @@ public class UserServiceImp implements IUserService {
         bo.setPassword(passwordEncoder.encode(vo.getPassword()));
         List<Role> roleList = new ArrayList<>();
         bo.getRoles().forEach(r -> {
-            Role rolePersist =roleRepository.findByRole2(r.getRole());
+            Role rolePersist =roleRepository.findByRole(r.getRole());
 //           List<Role> rolePersist = roleRepository.findByRole(r.getRole());
             List<Privilege> privilegeList = new ArrayList<>();
             if (rolePersist == null) {
@@ -84,17 +84,18 @@ public class UserServiceImp implements IUserService {
         userRepository1.save(bo);
 
 
+
     }
 
 
 
 
 
+     @Override
 
+    public RoleVo findByRole(String role) {
 
-    public List<RoleVo> findByRole(String role) {
-      List<Role> findRole = roleRepository.findByRole(role);
-      return RoleConverter.toVoList(findRole);
+      return RoleConverter.toVo(roleRepository.findByRole(role));
     }
 
     @Override

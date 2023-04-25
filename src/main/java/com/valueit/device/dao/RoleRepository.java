@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
-    List<Role> findByRole(String role);
-    Role findByRole2(String role);
+//    List<Role> findByRole(String role);
+    Role findByRole(String role);
 
     List<Role> findAll();
     boolean existsByRole(String role);

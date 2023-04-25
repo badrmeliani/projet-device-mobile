@@ -24,9 +24,9 @@ public class Role {
     @Column(name = "role_id")
     private int id;
 
-private String role;
+//private String role;
 
-private String role2;
+private String role;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "role_privilege", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "privilege_id"))
@@ -40,8 +40,7 @@ private String role2;
 //        this.role = role;
 //    }
 
-    public Role(String role, String role2) {
+    public Role( String role) {
         this.role = role;
-        this.role2 = role2;
     }
 }
