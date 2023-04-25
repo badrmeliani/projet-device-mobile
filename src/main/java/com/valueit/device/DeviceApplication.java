@@ -45,21 +45,20 @@ public class DeviceApplication implements CommandLineRunner {
 		PrivilegeVo privilege2 = new PrivilegeVo("delete_article");
 		PrivilegeVo privilege3 = new PrivilegeVo("update_article");
 		PrivilegeVo privilege4 = new PrivilegeVo("read_article");
-		RoleVo roleAdmin = new RoleVo("ADMIN","ADMIN") ;
-		RoleVo roleChef  = new RoleVo("CHEF","CHEF");
+		RoleVo roleAdmin = new RoleVo("ADMIN") ;
+		RoleVo roleChef  = new RoleVo("CHEF");
 //
-		userService.save(new RoleVo("ADMIN","ADMIN"));
-		userService.save(new RoleVo("CHEF","CHEF"));
-		userService.save(new RoleVo("EMP","EMP"));
+		userService.save(new RoleVo("ADMIN"));
+		userService.save(new RoleVo("CHEF"));
+		userService.save(new RoleVo("EMP"));
 
 //
 		roleAdmin.setPrivileges(Arrays.asList(privilege1,privilege2,privilege3));
 		roleChef.setPrivileges(Arrays.asList(privilege4));
 
-		UserVo admin1 = new UserVo("admin1", "admin1", Arrays.asList(roleAdmin),true,true,true,true);
-		UserVo admin2 = new UserVo("admin2", "admin2", Arrays.asList(roleAdmin),true,true,true,true);
-		UserVo chef1 = new UserVo("chef1", "chef1", Arrays.asList(roleChef),true,true,true,true);
-		UserVo chef2 = new UserVo("chef2", "chef2", Arrays.asList(roleChef),true,true,true,true);
+		UserVo admin1 = new UserVo("admin1", "admin1",true,true,true,true);
+		admin1.setRoles(Arrays.asList(roleAdmin));
+//-
 ////		UserVo Employee1 = new UserVo("EMP", "chef1", Arrays.asList(roleEmp),true,true,true,true);
 ////		UserVo Employee2 = new UserVo("EMP", "chef2", Arrays.asList(roleEmp),true,true,true,true);
         		userService.save(privilege1);
