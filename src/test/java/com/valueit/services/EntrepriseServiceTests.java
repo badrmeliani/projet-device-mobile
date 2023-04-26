@@ -34,10 +34,10 @@ public class EntrepriseServiceTests {
 
     private static final Long ID = 1L;
     private static final String NOM = "ValueIt";
-    private static final String ADRESSE = "123 Test Street";
+    private static final String ADRESSE = "Hassan Sghir immeuble, étage 7, bureau 7-9";
     private static final int CAPITAL = 1000000;
-    private static final String FONDATEUR = "John Doe";
-    private static final Date DATE_CREATION = new Date();
+    private static final String FONDATEUR = "Marouane";
+    private static final Date DATE_CREATION = new GregorianCalendar(2019, Calendar.MAY, 22).getTime();;
 
     private List<Entreprise> entreprises;
     private List<Device> devices;

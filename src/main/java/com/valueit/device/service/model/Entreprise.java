@@ -21,7 +21,6 @@ public class Entreprise {
     private String adresse;
     private int capitale;
     private String fondateur;
-    @Transient
     private Date date_creation;
 
     public Entreprise(Long id, String nom, String adresse, int capitale, String fondateur, Date date_creation, List<Device> devices) {
@@ -40,5 +39,6 @@ public class Entreprise {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "entreprise",cascade = {CascadeType.MERGE,CascadeType.PERSIST} )
     private List<Device> devices = new ArrayList<>();
+
 
 }

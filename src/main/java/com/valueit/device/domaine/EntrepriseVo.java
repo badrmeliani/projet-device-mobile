@@ -15,10 +15,11 @@ public class EntrepriseVo {
     private String fondateur;
     private Date date_creation;
 
-    public EntrepriseVo(String nom, String adresse, int capitale, String fondateur, Date dateCreation) {
+    public EntrepriseVo(String nom, String adresse, int capitale, String fondateur, Date date_creation) {
         this.nom = nom;
         this.adresse = adresse;
         this.capitale = capitale;
         this.fondateur = fondateur;
+        this.date_creation = date_creation;
     }
 }
