@@ -3,6 +3,7 @@ package com.valueit.device.service;
 import com.valueit.device.dao.EntrepriseRepository;
 import com.valueit.device.domaine.EntrepriseConverter;
 import com.valueit.device.domaine.EntrepriseVo;
+import com.valueit.device.domaine.UserVo;
 import com.valueit.device.service.IEntrepriseService;
 import com.valueit.device.service.model.Entreprise;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +52,6 @@ public class EntrepriseServiceImp implements IEntrepriseService {
         List<Entreprise> list = entrepriseRepository.findByNom(name);
         return EntrepriseConverter.toListVo(list);
     }
+
+
 }

@@ -9,6 +9,9 @@ import com.valueit.device.service.model.Privilege;
 import com.valueit.device.service.model.User;
 import com.valueit.device.service.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -99,6 +102,24 @@ public void save(RoleVo vo) {
     }
 
     @Override
+    public void delete(long id) {
+        userRepository1.deleteById(id);
+    }
+
+    @Override
+    public UserVo getuserById(Long id) {
+//        boolean trouve = empRepository.existsById(id);
+//        if (!trouve)
+//            return null;
+//        return EmpConverter.toVo(empRepository.getById(id));
+        boolean trouver = userRepository1.existsById(id);
+        if (!trouver) return null;
+        return UserConverter.toVo(userRepository1.getById(id));
+
+    }
+
+
+    @Override
     public List<UserVo> getAllUsers() {
         List<User> list = userRepository1.findAll();
         return UserConverter.toVoList(list);
@@ -156,11 +177,21 @@ public void save(RoleVo vo) {
 
     }
 
+    @Override
+    public List<UserVo> findAll(int pageId, int size) {
+        Page<User> result = userRepository1.findAll(PageRequest.of(pageId,size, Sort.Direction.ASC,"username"));
+        return UserConverter.toVoList(result.getContent());
+    }
 
+    @Override
+    public List<UserVo> sortBy(String fieldName) {
+        return UserConverter.toVoList(userRepository1.findAll(Sort.by(Sort.Direction.ASC,fieldName)));
+    }
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return UserConverter.toVo(userRepository1.findByUsername(username));
     }
+
 }
