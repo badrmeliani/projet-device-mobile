@@ -1,5 +1,6 @@
 package com.valueit.device.domaine;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,8 +20,14 @@ public class RoleVo {
 //        this.role = role;
 //    }
 
-    public RoleVo( String role) {
+//    public RoleVo( String role) {
+//
+//        this.role = role;
+//    }
 
+
+
+    public RoleVo(String role) {
         this.role = role;
     }
 }

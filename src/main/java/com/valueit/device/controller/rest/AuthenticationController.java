@@ -6,6 +6,7 @@ import com.valueit.device.domaine.UserVo;
 import com.valueit.device.jwt.JwtUtils;
 import com.valueit.device.service.IUserService;
 import com.valueit.device.service.exception.BusinessException;
+import com.valueit.device.service.model.Privilege;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -46,7 +47,11 @@ public class AuthenticationController {
             tokenVo.setJwttoken(jwt);
             tokenVo.setUsername(userVo.getUsername());
             Collection<? extends GrantedAuthority> list = authentication.getAuthorities();
+
+
+//            list.forEach(grantedAuthority -> userVo.getRoles());
             list.forEach(authorite -> tokenVo.getRoles().add(authorite.getAuthority()));
+//
             return ResponseEntity.ok(tokenVo);
         } catch (Exception e) {
             throw new BusinessException("Login ou mot de passe incorrect");
@@ -60,7 +65,7 @@ public class AuthenticationController {
             return ResponseEntity.badRequest().body("Error: Username is already taken!");
         }
         // par défaut le client a le rôle CLIENT
-        userVo.getRoles().add(new RoleVo("ADMIN"));
+        userVo.getRoles().add(new RoleVo("CLIENT"));
         userService.save(userVo);
         return ResponseEntity.ok("User registered successfully!");
     }
