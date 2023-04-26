@@ -56,15 +56,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().authenticationEntryPoint(unauthorizedHandler);
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/").permitAll();
-//        http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers("/signin").permitAll();
+        http.authorizeRequests().antMatchers("/signup").permitAll();
+        http.authorizeRequests().antMatchers("/auth/**").permitAll();
+//
+        http.authorizeRequests().antMatchers("/users/sort/**").hasAuthority("sort_users");
+        http.authorizeRequests().antMatchers("/users/pagination/**").hasAuthority("pagination_users");
+        http.authorizeRequests().antMatchers("/users/view/**").hasAuthority("view_users");
+        http.authorizeRequests().antMatchers("/users/create").hasAuthority("create_users");
+        http.authorizeRequests().antMatchers("/users/update/**").hasAuthority("update_users");
+        http.authorizeRequests().antMatchers("/users/delete/**").hasAuthority("delete_users");
+
+//                http.authorizeRequests().antMatchers("/article/update/**").hasAuthority("update_article");
+//        http.authorizeRequests().antMatchers("/article/delete/**").hasAuthority("delete_article");
+//        http.authorizeRequests().antMatchers("/article/read/**").hasAuthority("read_article");
+
 //        http.authorizeRequests().antMatchers("/auth/**").permitAll();
 //        http.authorizeRequests().antMatchers("/admin/role").hasAnyAuthority("ADMIN");
 //
 //        http.authorizeRequests().antMatchers("/welcome").permitAll();
-//        http.authorizeRequests().antMatchers("/admin/**").hasAuthority("ADMIN");
+//        http.authorizeRequests().antMatchers("/admin/**").hasAuthority("ADMIN","SUPERADMIN");
 //        http.authorizeRequests().antMatchers("/admin/user/view").hasAuthority("CHEF");
-//        http.authorizeRequests().anyRequest().authenticated();
-//        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.authorizeRequests().anyRequest().authenticated();
+        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override

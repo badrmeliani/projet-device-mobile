@@ -41,34 +41,43 @@ public class DeviceApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 //	  userService.cleanDataBase();
 //
-		PrivilegeVo privilege1 = new PrivilegeVo("create_article");
-		PrivilegeVo privilege2 = new PrivilegeVo("delete_article");
-		PrivilegeVo privilege3 = new PrivilegeVo("update_article");
-		PrivilegeVo privilege4 = new PrivilegeVo("read_article");
-		RoleVo roleAdmin = new RoleVo("ADMIN","ADMIN") ;
-		RoleVo roleChef  = new RoleVo("CHEF","CHEF");
-//
-		userService.save(new RoleVo("ADMIN","ADMIN"));
-		userService.save(new RoleVo("CHEF","CHEF"));
-		userService.save(new RoleVo("EMP","EMP"));
+		PrivilegeVo privilege1 = new PrivilegeVo("create_users");
+		PrivilegeVo privilege2 = new PrivilegeVo("delete_users");
+		PrivilegeVo privilege3 = new PrivilegeVo("update_users");
+		PrivilegeVo privilege4 = new PrivilegeVo("view_users");
+		PrivilegeVo privilege5 = new PrivilegeVo("pagination_users");
+		PrivilegeVo privilege6 = new PrivilegeVo("sort_users");
+		RoleVo roleSuperAdmin = new RoleVo("SUPERADMIN") ;
+		RoleVo roleAdmin = new RoleVo("ADMIN") ;
+		RoleVo roleChef  = new RoleVo("CHEF");
+
 
 //
-		roleAdmin.setPrivileges(Arrays.asList(privilege1,privilege2,privilege3));
+
+
+//
+		roleSuperAdmin.setPrivileges(Arrays.asList(privilege1,privilege2,privilege3,privilege4,privilege5,privilege6));
+		roleAdmin.setPrivileges(Arrays.asList(privilege1,privilege2,privilege3,privilege4,privilege5,privilege6));
 		roleChef.setPrivileges(Arrays.asList(privilege4));
 
-		UserVo admin1 = new UserVo("admin1", "admin1", Arrays.asList(roleAdmin),true,true,true,true);
-		UserVo admin2 = new UserVo("admin2", "admin2", Arrays.asList(roleAdmin),true,true,true,true);
-		UserVo chef1 = new UserVo("chef1", "chef1", Arrays.asList(roleChef),true,true,true,true);
-		UserVo chef2 = new UserVo("chef2", "chef2", Arrays.asList(roleChef),true,true,true,true);
+		userService.save(roleAdmin);
+		userService.save(roleChef);
+		userService.save(roleSuperAdmin);
+
+		UserVo admin = new UserVo("admin1", "admin1", Arrays.asList(roleAdmin),true,true,true,true);
+		UserVo superadmin = new UserVo("superadmin1", "superadmin1", Arrays.asList(roleSuperAdmin),true,true,true,true);
+		UserVo chef = new UserVo("chef1", "chef1", Arrays.asList(roleChef),true,true,true,true);
 ////		UserVo Employee1 = new UserVo("EMP", "chef1", Arrays.asList(roleEmp),true,true,true,true);
 ////		UserVo Employee2 = new UserVo("EMP", "chef2", Arrays.asList(roleEmp),true,true,true,true);
         		userService.save(privilege1);
 		userService.save(privilege2);
 		userService.save(privilege3);
 		userService.save(privilege4);
-		userService.save(admin1);
-//		userService.save(admin2);
-//		userService.save(chef1);
+		userService.save(privilege5);
+		userService.save(privilege6);
+		userService.save(superadmin);
+		userService.save(admin);
+		userService.save(chef);
 
 //
 //		iDeviceservices.save(new DeviceVo("test1","test2"));

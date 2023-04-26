@@ -15,7 +15,7 @@ public class RoleConverter {
         RoleVo vo = new RoleVo();
         vo.setId(bo.getId());
         vo.setRole(bo.getRole());
-        vo.setRole2(bo.getRole2());
+//        vo.setRole2(bo.getRole2());
         vo.setPrivileges(PrivilegeConverter.toVoList(bo.getPrivileges()));
         return vo;
     }
@@ -26,7 +26,7 @@ public class RoleConverter {
         Role bo = new Role();
         bo.setId(vo.getId());
         bo.setRole(vo.getRole());
-        bo.setRole2(vo.getRole2());
+//        bo.setRole2(vo.getRole2());
         bo.setPrivileges(PrivilegeConverter.toBoList(vo.getPrivileges()));
         return bo;
     }

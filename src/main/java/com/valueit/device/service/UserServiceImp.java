@@ -9,6 +9,9 @@ import com.valueit.device.service.model.Privilege;
 import com.valueit.device.service.model.User;
 import com.valueit.device.service.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -38,10 +41,10 @@ public class UserServiceImp implements IUserService {
         if (privilegePersist == null)
             privilegePersist = privilegeRepository.save(bo);
     }
-
-    public void save(RoleVo vo) {
+@Override
+public void save(RoleVo vo) {
         Role bo = RoleConverter.toBo(vo);
-        List<Role> rolePersist = roleRepository.findByRole(bo.getRole());
+       Role rolePersist = roleRepository.findByRole(bo.getRole());
         List<Privilege> privilegeList = new ArrayList<>();
         if (rolePersist == null) {
             vo.getPrivileges().forEach(p -> {
@@ -64,7 +67,7 @@ public class UserServiceImp implements IUserService {
         bo.setPassword(passwordEncoder.encode(vo.getPassword()));
         List<Role> roleList = new ArrayList<>();
         bo.getRoles().forEach(r -> {
-            Role rolePersist =roleRepository.findByRole2(r.getRole());
+            Role rolePersist =roleRepository.findByRole(r.getRole());
 //           List<Role> rolePersist = roleRepository.findByRole(r.getRole());
             List<Privilege> privilegeList = new ArrayList<>();
             if (rolePersist == null) {
@@ -84,18 +87,37 @@ public class UserServiceImp implements IUserService {
         userRepository1.save(bo);
 
 
+
     }
 
 
 
 
 
+     @Override
 
+    public RoleVo findByRole(String role) {
 
-    public List<RoleVo> findByRole(String role) {
-      List<Role> findRole = roleRepository.findByRole(role);
-      return RoleConverter.toVoList(findRole);
+      return RoleConverter.toVo(roleRepository.findByRole(role));
     }
+
+    @Override
+    public void delete(long id) {
+        userRepository1.deleteById(id);
+    }
+
+    @Override
+    public UserVo getuserById(Long id) {
+//        boolean trouve = empRepository.existsById(id);
+//        if (!trouve)
+//            return null;
+//        return EmpConverter.toVo(empRepository.getById(id));
+        boolean trouver = userRepository1.existsById(id);
+        if (!trouver) return null;
+        return UserConverter.toVo(userRepository1.getById(id));
+
+    }
+
 
     @Override
     public List<UserVo> getAllUsers() {
@@ -154,11 +176,21 @@ public class UserServiceImp implements IUserService {
 
     }
 
+    @Override
+    public List<UserVo> findAll(int pageId, int size) {
+        Page<User> result = userRepository1.findAll(PageRequest.of(pageId,size, Sort.Direction.ASC,"username"));
+        return UserConverter.toVoList(result.getContent());
+    }
 
+    @Override
+    public List<UserVo> sortBy(String fieldName) {
+        return UserConverter.toVoList(userRepository1.findAll(Sort.by(Sort.Direction.ASC,fieldName)));
+    }
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return UserConverter.toVo(userRepository1.findByUsername(username));
     }
+
 }
