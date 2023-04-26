@@ -40,9 +40,5 @@ public class Entreprise {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "entreprise",cascade = {CascadeType.MERGE,CascadeType.PERSIST} )
     private List<Device> devices = new ArrayList<>();
-    public void addDevice(Device device) {
-        devices.add(device);
-        device.setEntreprise(this);
-    }
 
 }
