@@ -1,5 +1,6 @@
 package com.valueit.device.jwt;
 
+import com.valueit.device.service.model.Privilege;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +22,14 @@ public class JwtUtils {
 
         UserDetails userPrincipal = (UserDetails) authentication.getPrincipal();
 
+
         Map<String, Object> credentials=new HashMap<>();
         List<String> roles=new ArrayList<>();
 
         userPrincipal.getAuthorities().forEach(r->roles.add(r.getAuthority()));
+
+
+
         credentials.put("roles", roles);
         credentials.put("sub", userPrincipal.getUsername());
 

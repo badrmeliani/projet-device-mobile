@@ -17,7 +17,7 @@ public class DeviceConverter {
         Device devices = new Device();
         devices.setNumSrie(deviceVo.getNumSrie());
         devices.setMarque(deviceVo.getMarque());
-        devices.setModele(deviceVo.modele);
+        devices.setModele(deviceVo.getModele());
         return devices;
     }
     public static List<DeviceVo> ToList (List<Device> list) {

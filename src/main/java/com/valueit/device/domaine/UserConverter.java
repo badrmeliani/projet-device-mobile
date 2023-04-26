@@ -29,14 +29,15 @@ public class UserConverter {
                 .forEach(p -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(p.getPrivilege()))));
 
         grantedAuthoritiesList.forEach(g->vo.getRoles().add(new RoleVo(g.getAuthority())));
+        vo.setAuthorities(getAuthorities(bo.getRoles()));
 
         return vo;
     }
-//    private static Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
-//        List<GrantedAuthority> springSecurityAuthorities = new ArrayList<>();
-//        roles.forEach(r -> springSecurityAuthorities.add(new SimpleGrantedAuthority(r.getRole())));
-//        return springSecurityAuthorities;
-//    }
+    private static Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
+        List<GrantedAuthority> springSecurityAuthorities = new ArrayList<>();
+        roles.forEach(r -> springSecurityAuthorities.add(new SimpleGrantedAuthority(r.getRole())));
+        return springSecurityAuthorities;
+    }
 
     public static User toBo(UserVo vo) {
         if (vo == null)

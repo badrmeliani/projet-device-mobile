@@ -3,6 +3,7 @@ package com.valueit.device.service.model;
 
 
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
@@ -14,8 +15,6 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-
-
 
 public class Role {
 

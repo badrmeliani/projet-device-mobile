@@ -38,8 +38,8 @@ public class UserServiceImp implements IUserService {
         if (privilegePersist == null)
             privilegePersist = privilegeRepository.save(bo);
     }
-
-    public void save(RoleVo vo) {
+@Override
+public void save(RoleVo vo) {
         Role bo = RoleConverter.toBo(vo);
        Role rolePersist = roleRepository.findByRole(bo.getRole());
         List<Privilege> privilegeList = new ArrayList<>();
