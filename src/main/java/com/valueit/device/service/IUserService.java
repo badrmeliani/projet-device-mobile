@@ -15,13 +15,17 @@ public interface IUserService extends UserDetailsService  {
     List<UserVo> getAllUsers();
     List<RoleVo> getAllRoles();
     RoleVo findByRole(String role);
+    void delete(long id);
+    UserVo getuserById(Long id);
 
 //    RoleVo getRoleByName(String role);
     void cleanDataBase();
     boolean existsByUsername(String username);
     boolean existsByRole(String role);
     UserVo findByUsername(String username);
-
+    List<UserVo> findAll(int pageId, int size);
+    //pour le tri
+    List<UserVo> sortBy(String fieldName);
 
 
 

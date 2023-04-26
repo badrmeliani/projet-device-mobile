@@ -1,6 +1,7 @@
 package com.valueit.device.service;
 
 import com.valueit.device.domaine.EntrepriseVo;
+import com.valueit.device.domaine.UserVo;
 
 import java.util.List;
 
@@ -11,4 +12,5 @@ public interface IEntrepriseService {
     void deleteById(Long id);
     void deleteAll();
     List<EntrepriseVo> findByNameEntreprise(String name);
+
 }

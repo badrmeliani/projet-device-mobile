@@ -26,6 +26,7 @@ public class User {
 
     @Length(min = 5, message = "*Your username must have at least 5 characters")
     @NotEmpty(message = "*Please provide an user name")
+    @Column(unique = true)
     private String username;
 
 
