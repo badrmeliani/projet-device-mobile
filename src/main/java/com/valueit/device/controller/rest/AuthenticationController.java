@@ -17,6 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.Collection;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -49,8 +50,10 @@ public class AuthenticationController {
             Collection<? extends GrantedAuthority> list = authentication.getAuthorities();
 
 
+
 //            list.forEach(grantedAuthority -> userVo.getRoles());
             list.forEach(authorite -> tokenVo.getRoles().add(authorite.getAuthority()));
+
 //
             return ResponseEntity.ok(tokenVo);
         } catch (Exception e) {
@@ -65,7 +68,7 @@ public class AuthenticationController {
             return ResponseEntity.badRequest().body("Error: Username is already taken!");
         }
         // par défaut le client a le rôle CLIENT
-        userVo.getRoles().add(new RoleVo("CLIENT"));
+        userVo.getRoles().add(new RoleVo("EMP"));
         userService.save(userVo);
         return ResponseEntity.ok("User registered successfully!");
     }

@@ -30,4 +30,9 @@ public class RoleVo {
     public RoleVo(String role) {
         this.role = role;
     }
+
+    public RoleVo(String role, List<PrivilegeVo> privileges) {
+        this.role = role;
+        this.privileges = privileges;
+    }
 }

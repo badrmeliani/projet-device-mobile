@@ -4,39 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="error">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3a9d09a16eaa1dbe06aa3865f0ec7bd73d7f2491" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/7/a713d6f4f5a28b0e2b584f115ec61b6060bce093" beforeDir="false" />
+    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="update permession">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/EmpRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/dao/EmpRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IEmpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IEmpServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Emp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/a/3a9d09a16eaa1dbe06aa3865f0ec7bd73d7f2491" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/7/a713d6f4f5a28b0e2b584f115ec61b6060bce093" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/DeviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/DeviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/configuration/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/AuthenticationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/dao/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/dao/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/PrivilegeVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/PrivilegeVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/RoleConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/RoleConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/RoleVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/RoleVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/TokenVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/TokenVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/jwt/JwtUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Privilege.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Privilege.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/DeviceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/DeviceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/UserRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/UserRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/RoleConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/RoleConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/configuration/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/configuration/SecurityConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/AuthenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/UserRestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/RoleVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/RoleVo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/IUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/jwt/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/jwt/JwtUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +50,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3a970d65-8a02-4b99-af5d-e30efa3b37c3" />
+        <option name="url" value="https://github.com/badrmeliani/projet-device-mobile.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" root0="FORCE_HIGHLIGHTING" />
@@ -89,7 +99,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Downloads/spring-role-permissions-master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/projetValueIt/mdm-projet-pfe-badr/src/main/resources&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -98,12 +108,15 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.valueit.device.service" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\projetValueIt\mdm-projet-pfe-badr\src\main\resources" />
       <recent name="C:\Users\pc\Desktop\mdm-projet-pfe\src\main\java\com\valueit\device\controller\rest" />
       <recent name="C:\Users\pc\Desktop\projetValueIt\device\src\test\resources" />
       <recent name="C:\Users\pc\Desktop\projetValueIt\device\src\main\resources\templates" />
       <recent name="C:\Users\pc\Desktop\projetValueIt\device\src\main\resources\static\css" />
-      <recent name="C:\Users\pc\Desktop\projetValueIt\device\src\main\resources\static\image" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.valueit.device.service" />
@@ -231,7 +244,49 @@
       <option name="project" value="LOCAL" />
       <updated>1681814422489</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix error">
+      <created>1681906569997</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681906569997</updated>
+    </task>
+    <task id="LOCAL-00009" summary="new update">
+      <created>1682419332766</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682419332766</updated>
+    </task>
+    <task id="LOCAL-00010" summary="new update h">
+      <created>1682419451723</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682419451723</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix error roles">
+      <created>1682497201029</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682497201029</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add methode for users">
+      <created>1682509732632</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682509732632</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update permession">
+      <created>1682523427306</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682523427306</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -254,7 +309,13 @@
     <MESSAGE value="Test commit" />
     <MESSAGE value="privileage" />
     <MESSAGE value="error" />
-    <option name="LAST_COMMIT_MESSAGE" value="error" />
+    <MESSAGE value="fix error" />
+    <MESSAGE value="new update" />
+    <MESSAGE value="new update h" />
+    <MESSAGE value="fix error roles" />
+    <MESSAGE value="add methode for users" />
+    <MESSAGE value="update permession" />
+    <option name="LAST_COMMIT_MESSAGE" value="update permession" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -276,41 +337,20 @@
           <option name="timeStamp" value="30" />
         </breakpoint>
         <breakpoint enabled="true" type="java-exception">
-          <properties class="java.sql.SQLSyntaxErrorException" package="java.sql" />
-          <option name="timeStamp" value="63" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="64" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/DeviceRestController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/DeviceRestController.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.3.13/spring-core-5.3.13.jar!/org/springframework/cglib/proxy/MethodProxy.class</url>
-          <line>103</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="org.springframework.beans.factory.BeanCreationException" package="org.springframework.beans.factory" />
+          <option name="timeStamp" value="77" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="Application">
+        <watch expression="((UsernamePasswordAuthenticationToken)authentication).authorities" language="JAVA" custom="org.springframework.security.authentication.UsernamePasswordAuthenticationToken" />
+        <watch expression="((UsernamePasswordAuthenticationToken)authentication).authorities" language="JAVA" custom="org.springframework.security.authentication.UsernamePasswordAuthenticationToken" />
+      </configuration>
       <inline-watch fileUrl="jar://$PROJECT_DIR$/../../../../../Program Files/Java/jdk1.8.0_361/src.zip!/java/util/ArrayList.java" line="658">
         <watch expression="index" language="JAVA" />
       </inline-watch>
