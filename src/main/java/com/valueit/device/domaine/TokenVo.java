@@ -12,5 +12,5 @@ public class TokenVo {
     private String username;
     private String jwttoken;
     private List<String> roles=new ArrayList<>();
-
+//   private List<String> permession = new ArrayList<>();
 }

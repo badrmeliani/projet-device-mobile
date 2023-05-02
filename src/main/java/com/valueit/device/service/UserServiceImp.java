@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,8 @@ public class UserServiceImp implements IUserService {
     private UserRepository userRepository1;
     @Autowired
    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private RoleRepository roleRepository;
@@ -90,7 +93,23 @@ public void save(RoleVo vo) {
 
     }
 
-
+//    @Override
+//    public void save(UserVo userVo) {
+//        User user = UserConverter.toBo(userVo);
+//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        List<Role> rolesPersist = new ArrayList<>();
+//        for (Role role : user.getRoles()) {
+//            Role userRole = roleRepository.findByRole(role.getRole()).get(0);
+//            rolesPersist.add(userRole);
+//        }
+//        user.setRoles(rolesPersist);
+//        userRepository1.save(user);
+//    }
+//
+//    @Override
+//    public void save(RoleVo roleVo) {
+//        roleRepository.save(RoleConverter.toBo(roleVo));
+//    }
 
 
 
