@@ -34,9 +34,11 @@ public class JwtUtils {
 
 
 
-        credentials.put("roles", roles);
+
+        credentials.put("privilige", roles.subList(1,roles.toArray().length));
         System.out.println(roles);
         credentials.put("sub", userPrincipal.getUsername());
+//        credentials.put("privilige",userPrincipal.getAuthorities());
 
 
 

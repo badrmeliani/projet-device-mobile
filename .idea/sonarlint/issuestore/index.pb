@@ -15,3 +15,9 @@ s
 Csrc/main/java/com/valueit/device/controller/rest/ErrorResponse.java,8\f\8fddeab34974c326918e81a2bd9f1f1d7171711a
 h
 8src/main/java/com/valueit/device/dao/UserRepository.java,c\8\c88ea5a0f75c0dfbbb4228dc15164bc4feb0db15
+l
+<src/main/java/com/valueit/device/service/UserServiceImp.java,1\c\1cab99061b54d690e0db6329f112566f46708cdb
+w
+Gsrc/main/java/com/valueit/device/controller/rest/EmpRestController.java,1\9\197aaf37e5573c5515e525bf84bdef34c36ea55a
+h
+8src/main/java/com/valueit/device/service/model/Role.java,0\5\0551a50debb181d66ef08b32ad930f29c7a220c2
