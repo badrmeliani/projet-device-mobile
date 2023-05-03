@@ -63,7 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //
         http.authorizeRequests().antMatchers("/users/sort/**").hasAuthority("sort_users");
         http.authorizeRequests().antMatchers("/users/pagination/**").hasAuthority("pagination_users");
-     http.authorizeRequests().antMatchers("/users/read/**").hasAuthority("ADMIN");
+     http.authorizeRequests().antMatchers("/users/read/**").hasAuthority("view_users");
      http.authorizeRequests().antMatchers("/users/create/**").hasAuthority("create_users");
       http.authorizeRequests().antMatchers("/users/update/**").hasAuthority("update_users");
       http.authorizeRequests().antMatchers("/users/delete/**").hasAuthority("delete_users");
