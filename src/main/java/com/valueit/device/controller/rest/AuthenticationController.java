@@ -76,7 +76,7 @@ public class AuthenticationController {
             return ResponseEntity.badRequest().body("Error: Username is already taken!");
         }
         // par défaut le client a le rôle CLIENT
-        userVo.getRoles().add(new RoleVo("EMP"));
+        userVo.getRoles().add(new RoleVo("CLIENT"));
         userService.save(userVo);
         return ResponseEntity.ok("User registered successfully!");
     }

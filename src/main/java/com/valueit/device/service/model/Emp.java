@@ -3,6 +3,7 @@ package com.valueit.device.service.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +11,8 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 @Data
-public class Emp {
+@DiscriminatorValue(value = "USER")
+public class Emp extends User  {
     @Id
     @GeneratedValue
     private Long id;
