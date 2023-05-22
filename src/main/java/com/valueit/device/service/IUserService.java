@@ -1,5 +1,6 @@
 package com.valueit.device.service;
 
+import com.valueit.device.domaine.EmpVo;
 import com.valueit.device.domaine.PrivilegeVo;
 import com.valueit.device.domaine.RoleVo;
 import com.valueit.device.domaine.UserVo;
@@ -11,6 +12,7 @@ import java.util.List;
 public interface IUserService extends UserDetailsService  {
     void save(UserVo user);
     void save(RoleVo role);
+   void save(EmpVo empVo);
     void save(PrivilegeVo vo);
     List<UserVo> getAllUsers();
     List<RoleVo> getAllRoles();

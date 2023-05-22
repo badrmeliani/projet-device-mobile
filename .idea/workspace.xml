@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="update permession">
+    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="modifier projet">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hd.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/valueit/device/TestAuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/valueit/device/TestEmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/TokenVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/TokenVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/DeviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/DeviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/jwt/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/configuration/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/configuration/SecurityConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/AuthenticationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/jwt/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/jwt/JwtUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IEmpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IEmpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Emp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hh.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/valueit/device/DeviceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/DeviceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/DeviceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
@@ -87,7 +98,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.viewMode&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -104,6 +115,9 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.valueit.device.service" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.valueit.device" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.DeviceApplication">
     <configuration name="DeviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -119,7 +133,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeviceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAuthenticationController.testauthenticateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="device" />
       <extension name="coverage">
         <pattern>
@@ -128,13 +142,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.valueit.device" />
-      <option name="MAIN_CLASS_NAME" value="com.valueit.device.DeviceApplicationTests" />
+      <option name="MAIN_CLASS_NAME" value="com.valueit.device.TestAuthenticationController" />
+      <option name="METHOD_NAME" value="testauthenticateUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestEmployeeController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="device" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.valueit.device.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.valueit.device" />
+      <option name="MAIN_CLASS_NAME" value="com.valueit.device.TestEmployeeController" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeviceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestEmployeeController.testgetAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="device" />
       <extension name="coverage">
         <pattern>
@@ -143,8 +173,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.valueit.device" />
-      <option name="MAIN_CLASS_NAME" value="com.valueit.device.DeviceApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="MAIN_CLASS_NAME" value="com.valueit.device.TestEmployeeController" />
+      <option name="METHOD_NAME" value="testgetAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestEmployeeController.testgetEmpByIdEmployeeExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="device" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.valueit.device.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.valueit.device" />
+      <option name="MAIN_CLASS_NAME" value="com.valueit.device.TestEmployeeController" />
+      <option name="METHOD_NAME" value="testgetEmpByIdEmployeeExist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,8 +210,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DeviceApplication" />
-        <item itemvalue="JUnit.DeviceApplicationTests" />
-        <item itemvalue="JUnit.DeviceApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.TestEmployeeController.testgetAll" />
+        <item itemvalue="JUnit.TestEmployeeController.testgetEmpByIdEmployeeExist" />
+        <item itemvalue="JUnit.TestEmployeeController" />
+        <item itemvalue="JUnit.TestAuthenticationController.testauthenticateUser" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +324,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683042966274</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix all error for token">
+      <created>1683132184141</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683132184141</updated>
+    </task>
+    <task id="LOCAL-00016" summary="modifier projet">
+      <created>1684317363438</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1684317363438</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,7 +367,9 @@
     <MESSAGE value="fix error roles" />
     <MESSAGE value="add methode for users" />
     <MESSAGE value="update permession" />
-    <option name="LAST_COMMIT_MESSAGE" value="update permession" />
+    <MESSAGE value="fix all error for token" />
+    <MESSAGE value="modifier projet" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifier projet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

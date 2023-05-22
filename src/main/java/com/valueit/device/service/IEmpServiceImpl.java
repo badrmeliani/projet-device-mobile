@@ -1,6 +1,7 @@
 package com.valueit.device.service;
 
 import com.valueit.device.dao.EmpRepository;
+import com.valueit.device.dao.UserRepository;
 import com.valueit.device.domaine.EmpConverter;
 import com.valueit.device.domaine.EmpVo;
 import com.valueit.device.service.model.Emp;
@@ -17,6 +18,9 @@ import java.util.List;
 public class IEmpServiceImpl implements IEmpService {
     @Autowired
     private EmpRepository empRepository;
+
+    @Autowired
+    private UserRepository userRepository;
     @Override
     public List<EmpVo> getEmployees() {
         List<Emp> list = empRepository.findAll();
@@ -24,7 +28,7 @@ public class IEmpServiceImpl implements IEmpService {
     }
     @Override
     public void save(EmpVo emp) {
-        empRepository.save(EmpConverter.toBo(emp));
+        userRepository.save(EmpConverter.emp(emp));
     }
     @Override
     public EmpVo getEmpById(Long id) {

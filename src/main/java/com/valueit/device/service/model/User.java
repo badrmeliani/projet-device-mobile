@@ -41,7 +41,8 @@ public class User {
     @ManyToMany(cascade = CascadeType.ALL )
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles = new ArrayList<>();
-      private boolean enabled ;
+
+    private boolean enabled ;
     private boolean accountNonExpired;
     private boolean credentialsNonExpired ;
     private boolean accountNonLocked;
