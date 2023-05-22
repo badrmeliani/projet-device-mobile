@@ -1,5 +1,6 @@
 package com.valueit.device.domaine;
 
+import com.valueit.device.service.model.Emp;
 import com.valueit.device.service.model.Privilege;
 import com.valueit.device.service.model.Role;
 import com.valueit.device.service.model.User;
@@ -54,7 +55,8 @@ public class UserConverter {
             return null;
         User bo = new User();
 
-            bo.setId(vo.getId());
+
+        bo.setId(vo.getId());
         bo.setUsername(vo.getUsername());
         bo.setPassword(vo.getPassword());
         bo.setRoles(RoleConverter.toBoList(vo.getRoles()));

@@ -7,6 +7,8 @@ import com.valueit.device.service.IDeviceservices;
 import com.valueit.device.service.IEmpService;
 import com.valueit.device.service.IEntrepriseService;
 import com.valueit.device.service.IUserService;
+import com.valueit.device.service.model.Emp;
+import com.valueit.device.service.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,6 +34,7 @@ public class DeviceApplication implements CommandLineRunner {
     IEntrepriseService iEntrepriseService;
     @Autowired
     private IEmpService empService;
+
 
 
     public static void main(String[] args) {
@@ -87,7 +90,7 @@ public class DeviceApplication implements CommandLineRunner {
         UserVo chef = new UserVo("chef1", "chef1", Arrays.asList(roleChef), true, true, true, true);
 ////		UserVo Employee1 = new UserVo("EMP", "chef1", Arrays.asList(roleEmp),true,true,true,true);
 ////		UserVo Employee2 = new UserVo("EMP", "chef2", Arrays.asList(roleEmp),true,true,true,true);
-
+//      EmpVo emp = new EmpVo("employe1","employe1",Arrays.asList(roleChef),true,true,true,true,1000d,"employee");
 //		userService.save(superadmin);
         userService.save(privilege1);
         userService.save(privilege2);
@@ -98,17 +101,25 @@ public class DeviceApplication implements CommandLineRunner {
         userService.save(admin);
         userService.save(chef);
         userService.save(superadmin);
+        userService.save(new EmpVo("employe","employe",Arrays.asList(roleChef),true,true,true,true,1000d,"employee"));
+
+
         ;
-
-        empService.save(new EmpVo("emp1", 10000d, "Fonction1"));
-        empService.save(new EmpVo("emp2", 20000d, "Fonction3"));
-        empService.save(new EmpVo("emp3", 30000d, "Fonction4"));
-        empService.save(new EmpVo("emp4", 40000d, "Fonction5"));
-        empService.save(new EmpVo("emp5", 50000d, "Fonction6"));
-
 //
-//		iDeviceservices.save(new DeviceVo("test1","test2"));
-//		userService.save(Employee1);
+//        empService.save(new EmpVo("emp1", 10000d, "Fonction1"));
+//        empService.save(new EmpVo("emp2", 20000d, "Fonction3"));
+//        empService.save(new EmpVo("emp3", 30000d, "Fonction4"));
+//        empService.save(new EmpVo("emp4", 40000d, "Fonction5"));
+//        empService.save(new EmpVo("emp5", 50000d, "Fonction6"));
+
+//  EmpVo empVo1 = new EmpVo("employee1",5000d,"fonction1");
+
+
+
+////		iDeviceservices.save(new DeviceVo("test1","test2"));
+//		userService.save(new EmpVo("Emplpye1",1000d,"fonvtion7"));
+
+
 
 
     }
