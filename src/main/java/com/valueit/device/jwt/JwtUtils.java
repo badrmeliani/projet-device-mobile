@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -25,13 +26,21 @@ public class JwtUtils {
 
         Map<String, Object> credentials=new HashMap<>();
         List<String> roles=new ArrayList<>();
+//      List<String> permession = new ArrayList<>();
+
+
 
         userPrincipal.getAuthorities().forEach(r->roles.add(r.getAuthority()));
 
 
 
-        credentials.put("roles", roles);
+
+        credentials.put("privilige", roles.subList(1,roles.toArray().length));
+        System.out.println(roles);
         credentials.put("sub", userPrincipal.getUsername());
+//        credentials.put("privilige",userPrincipal.getAuthorities());
+
+
 
         return Jwts.builder().setClaims(credentials)
                 .setIssuedAt(new Date())

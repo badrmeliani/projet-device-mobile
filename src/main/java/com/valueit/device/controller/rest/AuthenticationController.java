@@ -17,7 +17,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/auth")
@@ -37,6 +40,10 @@ public class AuthenticationController {
 
         try {
 
+           UserVo userVo1 =  userService.findByUsername(userVo.getUsername());
+            if (!userVo1.isEnabled()) {
+                throw new Exception("user not enable");
+            }
 
             Authentication authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(userVo.getUsername(), userVo.getPassword()));
@@ -46,11 +53,15 @@ public class AuthenticationController {
             TokenVo tokenVo = new TokenVo();
             tokenVo.setJwttoken(jwt);
             tokenVo.setUsername(userVo.getUsername());
-            Collection<? extends GrantedAuthority> list = authentication.getAuthorities();
+            //Collection<? extends GrantedAuthority> list = authentication.getAuthorities();
+
 
 
 //            list.forEach(grantedAuthority -> userVo.getRoles());
-            list.forEach(authorite -> tokenVo.getRoles().add(authorite.getAuthority()));
+            //list.forEach(authorite -> tokenVo.getRoles().add(authorite.getAuthority()));
+//            tokenVo.getRoles().add(authentication.getAuthorities().stream().collect(Collectors.toList()).get(0).toString());
+            tokenVo.setRole(authentication.getAuthorities().stream().collect(Collectors.toList()).get(0).toString());
+
 //
             return ResponseEntity.ok(tokenVo);
         } catch (Exception e) {

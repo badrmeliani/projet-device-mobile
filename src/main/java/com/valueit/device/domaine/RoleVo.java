@@ -3,6 +3,7 @@ package com.valueit.device.domaine;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,4 +31,11 @@ public class RoleVo {
     public RoleVo(String role) {
         this.role = role;
     }
+
+    public RoleVo(String role, List<PrivilegeVo> privileges) {
+        this.role = role;
+        this.privileges = privileges;
+    }
+
+
 }

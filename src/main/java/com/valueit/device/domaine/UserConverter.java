@@ -1,11 +1,14 @@
 package com.valueit.device.domaine;
 
+import com.valueit.device.service.model.Emp;
+import com.valueit.device.service.model.Privilege;
 import com.valueit.device.service.model.Role;
 import com.valueit.device.service.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,28 +26,37 @@ public class UserConverter {
         vo.setAccountNonLocked(bo.isAccountNonLocked());
         vo.setCredentialsNonExpired(bo.isCredentialsNonExpired());
         vo.setEnabled(bo.isEnabled());
-        List<GrantedAuthority> grantedAuthoritiesList = new ArrayList<>();
-        bo.getRoles().forEach(role -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(role.getRole())));
-        bo.getRoles().forEach(r -> r.getPrivileges()
-                .forEach(p -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(p.getPrivilege()))));
-
-        grantedAuthoritiesList.forEach(g->vo.getRoles().add(new RoleVo(g.getAuthority())));
+//        List<GrantedAuthority> grantedAuthoritiesList = new ArrayList<>();
+//        bo.getRoles().forEach(role -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(role.getRole())));
+//        bo.getRoles().forEach(r -> r.getPrivileges()
+//                .forEach(p -> grantedAuthoritiesList.add(new SimpleGrantedAuthority(p.getPrivilege()))));
+//
+//        grantedAuthoritiesList.forEach(g->vo.getRoles().add(new RoleVo(g.getAuthority())));
         vo.setAuthorities(getAuthorities(bo.getRoles()));
+
 
         return vo;
     }
-    private static Collection<? extends GrantedAuthority> getAuthorities(List<Role> roles) {
+
+    private static Collection<? extends GrantedAuthority> getAuthorities(List<Role > roles) {
         List<GrantedAuthority> springSecurityAuthorities = new ArrayList<>();
         roles.forEach(r -> springSecurityAuthorities.add(new SimpleGrantedAuthority(r.getRole())));
+
+        roles.forEach(r->r.getPrivileges().forEach(p->springSecurityAuthorities.add(new SimpleGrantedAuthority(p.getPrivilege()))));
+
+
         return springSecurityAuthorities;
     }
+
+
 
     public static User toBo(UserVo vo) {
         if (vo == null)
             return null;
         User bo = new User();
 
-            bo.setId(vo.getId());
+
+        bo.setId(vo.getId());
         bo.setUsername(vo.getUsername());
         bo.setPassword(vo.getPassword());
         bo.setRoles(RoleConverter.toBoList(vo.getRoles()));
