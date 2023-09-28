@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Device {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numSrie;
     private String marque;
     private String modele;

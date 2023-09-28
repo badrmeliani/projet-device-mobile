@@ -37,6 +37,7 @@ public class EntrepriseServiceTests {
     private static final String ADRESSE = "Hassan Sghir immeuble, étage 7, bureau 7-9";
     private static final int CAPITAL = 1000000;
     private static final String FONDATEUR = "Marouane";
+    private static final String SECTEUR = "Developpement IT";
     private static final Date DATE_CREATION = new GregorianCalendar(2019, Calendar.MAY, 22).getTime();;
 
     private List<Entreprise> entreprises;
@@ -47,7 +48,7 @@ public class EntrepriseServiceTests {
         devices = Arrays.asList(
                 new Device(1L, "Samsung", "Galaxy S21", null));
         entreprises = new ArrayList<>();
-        entreprises.add(new Entreprise(ID, NOM, ADRESSE, CAPITAL, FONDATEUR, DATE_CREATION, devices));
+        entreprises.add(new Entreprise(ID, NOM, ADRESSE, CAPITAL, FONDATEUR, SECTEUR, DATE_CREATION, devices));
         Mockito.when(entrepriseRepository.existsById(ID)).thenReturn(true);
         Mockito.when(entrepriseRepository.findById(ID)).thenReturn(Optional.of(entreprises.get(0)));
         Mockito.when(entrepriseRepository.findByNom(NOM)).thenReturn(entreprises);
@@ -75,8 +76,8 @@ public class EntrepriseServiceTests {
     @Test
     public void testSave() {
         // given
-        EntrepriseVo entrepriseVo = new EntrepriseVo(NOM, ADRESSE, CAPITAL, FONDATEUR, DATE_CREATION);
-        Entreprise entreprise = new Entreprise(ID, NOM, ADRESSE, CAPITAL, FONDATEUR, DATE_CREATION, devices);
+        EntrepriseVo entrepriseVo = new EntrepriseVo(ID,NOM, ADRESSE, CAPITAL, FONDATEUR, SECTEUR, DATE_CREATION);
+        Entreprise entreprise = new Entreprise(ID, NOM, ADRESSE, CAPITAL, FONDATEUR, SECTEUR, DATE_CREATION, devices);
         Mockito.when(entrepriseRepository.save(Mockito.any())).thenReturn(entreprise);
 
         // when

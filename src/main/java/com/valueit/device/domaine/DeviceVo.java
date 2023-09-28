@@ -1,5 +1,6 @@
 package com.valueit.device.domaine;
 
+import com.valueit.device.service.model.Entreprise;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,11 +12,13 @@ import lombok.NoArgsConstructor;
 public  class DeviceVo {
     private Long numSrie;
     private String marque;
-    String modele;
+    private String modele;
+    private Entreprise entreprise;
 
-    public DeviceVo(Long numSrie, String marque, String modele) {
+    public DeviceVo(Long numSrie, String marque, String modele,Entreprise entreprise) {
         this.numSrie = numSrie;
         this.marque = marque;
         this.modele = modele;
+        this.entreprise = entreprise;
     }
 }

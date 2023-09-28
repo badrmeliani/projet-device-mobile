@@ -11,51 +11,60 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-
 public class EmpRestController {
+
     @Autowired
     private IEmpService service;
 
-    @GetMapping(value = "/users/read",produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-
+    @GetMapping(value = "/users/read", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
     public List<EmpVo> getAll() {
         return service.getEmployees();
     }
-    @GetMapping(value = "/users/{id}")
+
+    @GetMapping(value = "/users/read/{id}")
     public ResponseEntity<Object> getEmpById(@PathVariable(value = "id") Long empVoId) {
         EmpVo empVoFound = service.getEmpById(empVoId);
         if (empVoFound == null)
-            return new ResponseEntity<>("employee doen't exist", HttpStatus.OK);
+            return new ResponseEntity<>("Employee doesn't exist", HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(empVoFound, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/users/read/{fonction}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    public List<EmpVo> findByFonction(@PathVariable String fonction) {
+        return service.findByFonction(fonction);
+    }
+
+    @GetMapping(value = "/users/read/{salary}}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    public List<EmpVo> findBySalary(@PathVariable Double salary) {
+        return service.findBySalary(salary);
+    }
 
     @PostMapping(value = "/users/create/")
     public ResponseEntity<Object> createEmp(@Valid @RequestBody EmpVo empVo) {
         service.save(empVo);
-        return new ResponseEntity<>("employee is created successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>("Employee is created successfully", HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/users/update/{id}")
-    public ResponseEntity<Object> updateEmp(@PathVariable(name = "id") Long empVoId,@Valid @RequestBody EmpVo empVo) {
+    public ResponseEntity<Object> updateEmp(@PathVariable(name = "id") Long empVoId, @Valid @RequestBody EmpVo empVo) {
         EmpVo empVoFound = service.getEmpById(empVoId);
         if (empVoFound == null)
-            return new ResponseEntity<>("employee doen't exist", HttpStatus.OK);
+            return new ResponseEntity<>("Employee doesn't exist", HttpStatus.NOT_FOUND);
         empVo.setId(empVoId);
         service.save(empVo);
-        return new ResponseEntity<>("Employee is updated successsfully", HttpStatus.OK);
+        return new ResponseEntity<>("Employee is updated successfully", HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/users/delete/{id}")
-    //@PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Object> deleteEmp(@PathVariable(name = "id") Long empVoId) {
         EmpVo empVoFound = service.getEmpById(empVoId);
         if (empVoFound == null)
-            return new ResponseEntity<>("employee doen't exist", HttpStatus.OK);
+            return new ResponseEntity<>("Employee doesn't exist", HttpStatus.NOT_FOUND);
         service.delete(empVoId);
-        return new ResponseEntity<>("Employee is deleted successsfully", HttpStatus.OK);
+        return new ResponseEntity<>("Employee is deleted successfully", HttpStatus.OK);
     }
 
     @GetMapping(value = "/users/sort/{fieldName}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })

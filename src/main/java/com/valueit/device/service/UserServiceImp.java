@@ -75,52 +75,17 @@ public class UserServiceImp implements IUserService {
         userRepository1.save(emp);
     }
 
-//    @Override
-//    public void save(EmpVo empVo) {
-//        empRepository.save(EmpConverter.toBo(empVo));
-//
-//    }
-
-//    @Override
-//    public void save(EmpVo empVo) {
-//        Emp bo = EmpConverter.toBo(empVo);
-//        bo.setPassword(passwordEncoder.encode(empVo.getPassword()));
-//        List<Role> roleList = new ArrayList<>();
-//        bo.getRoles().forEach(r -> {
-//            Role rolePersist = roleRepository.findByRole(r.getRole());
-////           List<Role> rolePersist = roleRepository.findByRole(r.getRole());
-//            List<Privilege> privilegeList = new ArrayList<>();
-//            if (rolePersist == null) {
-//                r.getPrivileges().forEach(p -> {
-//                    Privilege privilegePersist = privilegeRepository.findByPrivilege(p.getPrivilege());
-//                    if (privilegePersist == null)
-//                        privilegePersist = privilegeRepository.save(p);
-//                    privilegeList.add(privilegePersist);
-//
-//                });
-//                r.setPrivileges(privilegeList);
-//                rolePersist = roleRepository.save(r);
-//            }
-//            roleList.add((Role) rolePersist);
-//        });
-//    }
-
-//    @Override
-//    public void save(EmpVo empVo) {
-//        empRepository.save(EmpConverter.toBo(empVo));
-//    }
-
-//
-
     @Override
 
     public void save(UserVo vo) {
         User bo = UserConverter.toBo(vo);
-        bo.setPassword(passwordEncoder.encode(vo.getPassword()));
+        String plainPassword = vo.getPassword();
+        String encodedPassword = passwordEncoder.encode(plainPassword);
+        bo.setPassword(encodedPassword);
+
         List<Role> roleList = new ArrayList<>();
         bo.getRoles().forEach(r -> {
             Role rolePersist = roleRepository.findByRole(r.getRole());
-//           List<Role> rolePersist = roleRepository.findByRole(r.getRole());
             List<Privilege> privilegeList = new ArrayList<>();
             if (rolePersist == null) {
                 r.getPrivileges().forEach(p -> {
@@ -140,30 +105,6 @@ public class UserServiceImp implements IUserService {
 
     }
 
-
-
-
-
-//    @Override
-//    public void save(UserVo userVo) {
-//        User user = UserConverter.toBo(userVo);
-//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//        List<Role> rolesPersist = new ArrayList<>();
-//        for (Role role : user.getRoles()) {
-//            Role userRole = roleRepository.findByRole(role.getRole()).get(0);
-//            rolesPersist.add(userRole);
-//        }
-//        user.setRoles(rolesPersist);
-//        userRepository1.save(user);
-//    }
-//
-//    @Override
-//    public void save(RoleVo roleVo) {
-//        roleRepository.save(RoleConverter.toBo(roleVo));
-//    }
-
-
-
      @Override
 
     public RoleVo findByRole(String role) {
@@ -178,10 +119,6 @@ public class UserServiceImp implements IUserService {
 
     @Override
     public UserVo getuserById(Long id) {
-//        boolean trouve = empRepository.existsById(id);
-//        if (!trouve)
-//            return null;
-//        return EmpConverter.toVo(empRepository.getById(id));
         boolean trouver = userRepository1.existsById(id);
         if (!trouver) return null;
         return UserConverter.toVo(userRepository1.getById(id));
@@ -200,19 +137,6 @@ public class UserServiceImp implements IUserService {
         List<Role> roles = roleRepository.findAll();
         return RoleConverter.toVoList(roles);
     }
-
-//    @Override
-//    public RoleVo getRoleByName(String role) {
-//        return RoleConverter.toVo(roleRepository.findByRole(role).get(0));
-//
-//    }
-
-//    public void addRoleToUser(String role, String userName) {
-//        UserVo userVo = UserConverter.toVo(userRepository1.findByUserName(userName));
-//        RoleVo roleVo = RoleConverter.toVo(roleRepository.findByRole(role));
-//       userVo.getRoles().add(roleVo);
-//
-//    }
 
     @Override
     public void cleanDataBase() {

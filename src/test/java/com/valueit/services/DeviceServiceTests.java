@@ -65,7 +65,7 @@ public class DeviceServiceTests {
         );
         MockitoAnnotations.initMocks(this);
         device = new Device(1L, "Samsung", "Galaxy S21",null);
-        deviceVo = new DeviceVo(1L, "Samsung", "Galaxy S21");
+        deviceVo = new DeviceVo(1L, "Samsung", "Galaxy S21",null);
     }
 
 

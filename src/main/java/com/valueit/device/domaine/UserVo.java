@@ -28,7 +28,7 @@ public class UserVo implements UserDetails {
     private Boolean accountNonExpired;
 
     private  Collection<? extends GrantedAuthority> authorities = new ArrayList<>();
-   private   List<RoleVo> roles = new ArrayList<RoleVo>();
+    private   List<RoleVo> roles = new ArrayList<RoleVo>();
 
 
 

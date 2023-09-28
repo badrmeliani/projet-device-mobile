@@ -13,6 +13,8 @@ public class EntrepriseConverter {
         entrepriseVo.setAdresse(entreprise.getAdresse());
         entrepriseVo.setCapitale(entreprise.getCapitale());
         entrepriseVo.setFondateur(entreprise.getFondateur());
+        entrepriseVo.setSecteur(entreprise.getSecteur());
+        entrepriseVo.setDate_creation(entreprise.getDate_creation());
         return entrepriseVo;
     }
 
@@ -23,6 +25,9 @@ public class EntrepriseConverter {
         entreprise1.setAdresse(entrepriseVo.getAdresse());
         entreprise1.setCapitale(entrepriseVo.getCapitale());
         entreprise1.setFondateur(entrepriseVo.getFondateur());
+        entreprise1.setSecteur(entrepriseVo.getSecteur());
+        entreprise1.setDate_creation(entrepriseVo.getDate_creation());
+
         return entreprise1;
     }
 

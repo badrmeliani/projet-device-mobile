@@ -1,10 +1,12 @@
 package com.valueit.device.service;
 
 import com.valueit.device.dao.EmpRepository;
+import com.valueit.device.dao.RoleRepository;
 import com.valueit.device.dao.UserRepository;
 import com.valueit.device.domaine.EmpConverter;
 import com.valueit.device.domaine.EmpVo;
 import com.valueit.device.service.model.Emp;
+import com.valueit.device.service.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,13 +14,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 @Service
 @Transactional
 public class IEmpServiceImpl implements IEmpService {
     @Autowired
     private EmpRepository empRepository;
-
+    @Autowired
+    private RoleRepository roleRepository;
     @Autowired
     private UserRepository userRepository;
     @Override
@@ -27,8 +31,20 @@ public class IEmpServiceImpl implements IEmpService {
         return EmpConverter.toListVo(list);
     }
     @Override
-    public void save(EmpVo emp) {
-        userRepository.save(EmpConverter.emp(emp));
+    public void save(EmpVo empVo) {
+        Emp emp = EmpConverter.emp(empVo);
+
+        // Fetch the role based on the fonction
+        Role role = roleRepository.findByRole(emp.getFonction());
+
+        if (role == null) {
+            // Handle the case where the role doesn't exist for the fonction
+            throw new RuntimeException("Role not found for fonction: " + empVo.getFonction());
+        }
+
+        // Assign the role to the user
+        emp.setRoles(Collections.singletonList(role));
+        userRepository.save(emp);
     }
     @Override
     public EmpVo getEmpById(Long id) {
@@ -52,12 +68,7 @@ public class IEmpServiceImpl implements IEmpService {
         return EmpConverter.toListVo(list);
     }
     @Override
-    public List<EmpVo> findBySalaryAndFonction(Double salary, String fonction) {
-        List<Emp> list = empRepository.findBySalaryAndFonction(salary, fonction);
-        return EmpConverter.toListVo(list);
-    }
-    @Override
-    public EmpVo getEmpHavaingMaxSalary() {
+    public EmpVo getEmpHavingMaxSalary() {
         return EmpConverter.toVo(empRepository.getEmpHavaingMaxSalary());
     }
     @Override

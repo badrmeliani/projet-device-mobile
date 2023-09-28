@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Emp extends User  {
 
-//    private String name;
+    @Column
     private Double salary;
     private String fonction;
 
