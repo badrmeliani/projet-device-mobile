@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 @Transactional
 public interface DeviceRepositoty extends JpaRepository<Device,Long> {
+
+    List<Device> findByNumSrie(String numSrie);
+
     List<Device> findByMarque(String marque);
     List<Device> findByModele(String model);
 

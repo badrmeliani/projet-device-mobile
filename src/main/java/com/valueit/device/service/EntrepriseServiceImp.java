@@ -2,8 +2,6 @@ package com.valueit.device.service;
 
 import com.valueit.device.dao.EntrepriseRepository;
 import com.valueit.device.domaine.*;
-import com.valueit.device.service.IEntrepriseService;
-import com.valueit.device.service.model.Device;
 import com.valueit.device.service.model.Entreprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,6 +20,11 @@ public class EntrepriseServiceImp implements IEntrepriseService {
     public List<EntrepriseVo> getAll() {
         List<Entreprise> list = entrepriseRepository.findAll();
         return EntrepriseConverter.toListVo(list);
+    }
+
+    @Override
+    public long getCount() {
+        return entrepriseRepository.count();
     }
 
     @Override

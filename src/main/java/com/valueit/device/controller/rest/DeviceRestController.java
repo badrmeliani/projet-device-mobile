@@ -19,6 +19,11 @@ public class DeviceRestController {
 
     IDeviceservices iDeviceservices;
 
+    @GetMapping(value = "/api/devices/count")
+    public long getCount(){
+        return iDeviceservices.getCount();
+    }
+
     @GetMapping(value = "/api/devices/read", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 
     public List<DeviceVo> getAll() {
@@ -38,12 +43,11 @@ public class DeviceRestController {
         return new ResponseEntity<>("device is created successfully", HttpStatus.CREATED);
     }
     @PutMapping(value = "/api/devices/update/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Object> updatedevice(@PathVariable(name = "id") Long deviceId, @RequestBody DeviceVo deviceVo) {
         DeviceVo deviceFound = iDeviceservices.getById(deviceId);
         if ( deviceFound== null)
             return new ResponseEntity<>("device doen't exist", HttpStatus.OK);
-        deviceVo.setNumSrie(deviceId);
+        deviceVo.setId(deviceId);
         iDeviceservices.save(deviceVo);
         return new ResponseEntity<>("device is updated successfully", HttpStatus.OK);
     }
@@ -61,6 +65,11 @@ public class DeviceRestController {
 
     public List<DeviceVo> findByMarque(@PathVariable(name = "marque") String marque) {
         return iDeviceservices.findByMarque(marque);
+    }
+    @GetMapping("/api/devices/read/numSrie/{numSrie}")
+
+    public List<DeviceVo> findbyNumSrie(@PathVariable(name = "numSrie") String numSrie) {
+        return iDeviceservices.getByNumSrie(numSrie);
     }
 
     @GetMapping(value = "/api/devices/read/modele/{modele}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })

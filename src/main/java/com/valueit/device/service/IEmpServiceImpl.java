@@ -3,8 +3,8 @@ package com.valueit.device.service;
 import com.valueit.device.dao.EmpRepository;
 import com.valueit.device.dao.RoleRepository;
 import com.valueit.device.dao.UserRepository;
-import com.valueit.device.domaine.EmpConverter;
-import com.valueit.device.domaine.EmpVo;
+import com.valueit.device.domaine.*;
+import com.valueit.device.service.exception.BusinessException;
 import com.valueit.device.service.model.Emp;
 import com.valueit.device.service.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +29,11 @@ public class IEmpServiceImpl implements IEmpService {
     public List<EmpVo> getEmployees() {
         List<Emp> list = empRepository.findAll();
         return EmpConverter.toListVo(list);
+    }
+
+    @Override
+    public long getCount() {
+        return empRepository.count();
     }
     @Override
     public void save(EmpVo empVo) {
@@ -58,6 +63,11 @@ public class IEmpServiceImpl implements IEmpService {
         empRepository.deleteById(id);
     }
     @Override
+    public List<RoleVo> getAllRoles() {
+        List<Role> roles = roleRepository.findAll(); // Assuming you have a repository for roles
+        return RoleConverter.toVoList(roles); // Convert roles to RoleVo
+    }
+    @Override
     public List<EmpVo> findBySalary(Double salaty) {
         List<Emp> list = empRepository.findBySalary(salaty);
         return EmpConverter.toListVo(list);
@@ -66,6 +76,19 @@ public class IEmpServiceImpl implements IEmpService {
     public List<EmpVo> findByFonction(String fonction) {
         List<Emp> list = empRepository.findByFonction(fonction);
         return EmpConverter.toListVo(list);
+    }
+    @Override
+    public EmpVo findByUsername(String username) {
+        if (username == null || username.trim().equals(""))
+            throw new BusinessException("login is empty !!");
+
+        Emp bo = empRepository.findByUsername(username);
+
+        if (bo == null)
+            throw new BusinessException("No user with this login");
+
+        return EmpConverter.toVo(bo);
+
     }
     @Override
     public EmpVo getEmpHavingMaxSalary() {

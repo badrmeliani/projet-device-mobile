@@ -21,7 +21,7 @@ public class EntrepriseVo {
 
 
 
-    public EntrepriseVo(Long id, String nom, String adresse, int capitale, String s, String fondateur, Date date_creation) {
+    public EntrepriseVo(Long id, String nom, String adresse, int capitale, String fondateur, String secteur, Date date_creation,List<DeviceVo> devices) {
         this.id = id;
         this.nom = nom;
         this.adresse = adresse;
@@ -30,6 +30,5 @@ public class EntrepriseVo {
         this.secteur = secteur;
         this.date_creation = date_creation;
         this.devices = devices;
-
     }
 }

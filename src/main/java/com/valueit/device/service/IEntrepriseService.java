@@ -8,6 +8,9 @@ import java.util.List;
 
 public interface IEntrepriseService {
     List<EntrepriseVo> getAll();
+
+    long getCount();
+
     void save(EntrepriseVo entrepriseVo);
     EntrepriseVo getById(Long id);
     void deleteById(Long id);

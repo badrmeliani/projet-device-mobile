@@ -50,6 +50,12 @@ public class AuthenticationController {
             if (!userVo1.isEnabled()) {
                 throw new Exception("user not enable");
             }
+//            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//
+//            // Hash the password
+//            String hashedPassword = encoder.encode(userVo.getPassword());
+//            System.out.println("Hashed Password: " + hashedPassword);
+//            // Now, 'hashedPassword' contains the hashed version of the user's password.
 
             Authentication authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(userVo.getUsername(), userVo.getPassword()));

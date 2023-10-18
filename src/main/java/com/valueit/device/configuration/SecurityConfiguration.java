@@ -56,29 +56,40 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().authenticationEntryPoint(unauthorizedHandler);
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/").permitAll();
-   http.authorizeRequests().antMatchers("/login").permitAll();
-     http.authorizeRequests().antMatchers("/auth/**").permitAll();
+        http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers("/auth/**").permitAll();
 
 
-//
-        http.authorizeRequests().antMatchers("/api/users/sort/**").hasAuthority("sort_users");
-        http.authorizeRequests().antMatchers("/api/users/pagination/**").hasAuthority("pagination_users");
-        http.authorizeRequests().antMatchers("/api/users/read/**").hasAuthority("view_users");
-        http.authorizeRequests().antMatchers("/api/users/create/**").hasAuthority("create_users");
-        http.authorizeRequests().antMatchers("/api/users/update/**").hasAuthority("update_users");
-        http.authorizeRequests().antMatchers("/api/users/delete/**").hasAuthority("delete_users");
+
+
+        http.authorizeRequests().antMatchers("/api/employees/count").hasAuthority("count_users");
+        http.authorizeRequests().antMatchers("/api/employees/sort/**").hasAuthority("sort_users");
+        http.authorizeRequests().antMatchers("/api/employees/pagination/**").hasAuthority("pagination_users");
+        http.authorizeRequests().antMatchers("/api/employees/read/**").hasAuthority("view_users");
+        http.authorizeRequests().antMatchers("/api/employees/roles/**").hasAuthority("view_roles");
+        http.authorizeRequests().antMatchers("/api/employees/create").hasAuthority("create_users");
+        http.authorizeRequests().antMatchers("/api/employees/update/**").hasAuthority("update_users");
+        http.authorizeRequests().antMatchers("/api/employees/delete/**").hasAuthority("delete_users");
+
+
+
+        http.authorizeRequests().antMatchers("/api/devices/count").hasAuthority("count_devices");
         http.authorizeRequests().antMatchers("/api/devices/read/**").hasAuthority("view_devices");
-        http.authorizeRequests().antMatchers("/api/devices/create/**").hasAuthority("create_devices");
+        http.authorizeRequests().antMatchers("/api/devices/create").hasAuthority("create_devices");
         http.authorizeRequests().antMatchers("/api/devices/update/**").hasAuthority("update_devices");
         http.authorizeRequests().antMatchers("/api/devices/delete/**").hasAuthority("delete_devices");
         http.authorizeRequests().antMatchers("/api/devices/sort/**").hasAuthority("sort_devices");
         http.authorizeRequests().antMatchers("/api/devices/pagination/**").hasAuthority("pagination_devices");
-        http.authorizeRequests().antMatchers("/api/entreprise/read/**").hasAuthority("view_entreprises");
-        http.authorizeRequests().antMatchers("/api/entreprise/create/**").hasAuthority("create_entreprises");
-        http.authorizeRequests().antMatchers("/api/entreprise/update/**").hasAuthority("update_entreprises");
-        http.authorizeRequests().antMatchers("/api/entreprise/delete/**").hasAuthority("delete_entreprises");
-        http.authorizeRequests().antMatchers("/api/entreprise/sort/**").hasAuthority("sort_entreprises");
-        http.authorizeRequests().antMatchers("/api/entreprise/pagination/**").hasAuthority("pagination_entreprises");
+
+
+
+        http.authorizeRequests().antMatchers("/api/entreprises/count").hasAuthority("count_entreprises");
+        http.authorizeRequests().antMatchers("/api/entreprises/read/**").hasAuthority("view_entreprises");
+        http.authorizeRequests().antMatchers("/api/entreprises/create").hasAuthority("create_entreprises");
+        http.authorizeRequests().antMatchers("/api/entreprises/update/**").hasAuthority("update_entreprises");
+        http.authorizeRequests().antMatchers("/api/entreprises/delete/**").hasAuthority("delete_entreprises");
+        http.authorizeRequests().antMatchers("/api/entreprises/sort/**").hasAuthority("sort_entreprises");
+        http.authorizeRequests().antMatchers("/api/entreprises/pagination/**").hasAuthority("pagination_entreprises");
 
 
 

@@ -1,5 +1,6 @@
 package com.valueit.device.service.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -15,7 +17,6 @@ import java.util.List;
 public class Entreprise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_entreprise")
     private Long id;
     private String nom;
     private String adresse;
@@ -24,6 +25,11 @@ public class Entreprise {
     private String secteur;
     @Column(name = "date_creation", columnDefinition = "DATE")
     private Date date_creation;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "entreprise", cascade = {CascadeType.ALL})
+    @JsonManagedReference
+//  @PrimaryKeyJoinColumn
+    private List<Device> devices;
 
     public Entreprise(Long id, String nom, String adresse, int capitale, String fondateur, String secteur, Date date_creation, List<Device> devices) {
         this.id = id;
@@ -35,10 +41,6 @@ public class Entreprise {
         this.date_creation = date_creation;
         this.devices = devices;
     }
-
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "entreprise",cascade = {CascadeType.MERGE,CascadeType.PERSIST} )
-    private List<Device> devices = new ArrayList<>();
 
 
 }

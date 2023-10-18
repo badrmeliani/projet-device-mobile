@@ -46,7 +46,7 @@ public class EntrepriseServiceTests {
     @Before
     public void setUp() {
         devices = Arrays.asList(
-                new Device(1L, "Samsung", "Galaxy S21", null));
+                new Device(1L,"XYZ123456789", "Samsung", "Galaxy S21", null,null));
         entreprises = new ArrayList<>();
         entreprises.add(new Entreprise(ID, NOM, ADRESSE, CAPITAL, FONDATEUR, SECTEUR, DATE_CREATION, devices));
         Mockito.when(entrepriseRepository.existsById(ID)).thenReturn(true);
@@ -76,7 +76,7 @@ public class EntrepriseServiceTests {
     @Test
     public void testSave() {
         // given
-        EntrepriseVo entrepriseVo = new EntrepriseVo(ID,NOM, ADRESSE, CAPITAL, FONDATEUR, SECTEUR, DATE_CREATION);
+        EntrepriseVo entrepriseVo = new EntrepriseVo(ID,NOM, ADRESSE, CAPITAL, FONDATEUR, SECTEUR, DATE_CREATION,null);
         Entreprise entreprise = new Entreprise(ID, NOM, ADRESSE, CAPITAL, FONDATEUR, SECTEUR, DATE_CREATION, devices);
         Mockito.when(entrepriseRepository.save(Mockito.any())).thenReturn(entreprise);
 

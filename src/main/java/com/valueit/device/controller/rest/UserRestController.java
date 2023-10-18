@@ -4,6 +4,7 @@ package com.valueit.device.controller.rest;
 import com.valueit.device.domaine.RoleVo;
 
 import com.valueit.device.domaine.UserVo;
+import com.valueit.device.service.IEmpService;
 import com.valueit.device.service.IUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ import java.util.*;
 
 public class UserRestController {
     @Autowired
+    private IEmpService service;
+    @Autowired
     IUserService iUserService;
 
     @GetMapping(value = "/read", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
@@ -40,6 +43,29 @@ public class UserRestController {
      UserVo findByUsername( String username) {
         return iUserService.findByUsername(username);
 
+    }
+    @GetMapping("/read/{id}")
+    public ResponseEntity<UserVo> getUserById(@PathVariable Long id) {
+        UserVo userVo = iUserService.getuserById(id);
+        if (userVo == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(userVo, HttpStatus.OK);
+    }
+
+    @GetMapping("/read/{roleName}")
+    public ResponseEntity<RoleVo> findByRole(@PathVariable String roleName) {
+        RoleVo role = iUserService.findByRole(roleName);
+        if (role != null) {
+            return new ResponseEntity<>(role, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    @GetMapping("/roles")
+    public ResponseEntity<List<RoleVo>> getAllRoles() {
+        List<RoleVo> roles = iUserService.getAllRoles();
+        return new ResponseEntity<>(roles, HttpStatus.OK);
     }
 
     @PostMapping(value = "/create")
@@ -62,7 +88,7 @@ public class UserRestController {
         UserVo empFound = iUserService.getuserById(empVoId);
         if (empFound==null) return ResponseEntity.notFound().build();
       iUserService.delete(empVoId);
-        return new ResponseEntity<>("User is deleted successsfully", HttpStatus.OK);
+        return new ResponseEntity<>("User is deleted successfully", HttpStatus.OK);
 
     }
 

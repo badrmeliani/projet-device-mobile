@@ -18,13 +18,19 @@ import java.util.List;
 public class EntrepriseRestController {
     @Autowired
     IEntrepriseService entrepriseServiceImp;
-    @GetMapping(value = "/api/entreprise/read", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+
+    @GetMapping(value = "/api/entreprises/count")
+    public long getCount(){
+        return entrepriseServiceImp.getCount();
+    }
+
+    @GetMapping(value = "/api/entreprises/read", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 
     List<EntrepriseVo> getAll(){
         return entrepriseServiceImp.getAll();
     }
 
-    @GetMapping("/api/entreprise/read/{id}")
+    @GetMapping("/api/entreprises/read/{id}")
     public ResponseEntity<EntrepriseVo> getById(@PathVariable(name = "id") Long id) {
         EntrepriseVo entrepriseVo = entrepriseServiceImp.getById(id);
         if (entrepriseVo == null) {
@@ -32,18 +38,18 @@ public class EntrepriseRestController {
         }
         return ResponseEntity.ok(entrepriseVo);
     }
-    @GetMapping("/api/entreprise/read/nom/{nom}")
+    @GetMapping("/api/entreprises/read/nom/{nom}")
 
     public List<EntrepriseVo> findByNameEntreprise(@PathVariable(name = "nom") String nom) {
         return entrepriseServiceImp.findByNameEntreprise(nom);
     }
-    @PostMapping(value = "/api/entreprise/create")
+    @PostMapping(value = "/api/entreprises/create")
 
     ResponseEntity<Object> createUser(@RequestBody @Valid EntrepriseVo entrepriseVo) {
         entrepriseServiceImp.save(entrepriseVo);
         return new ResponseEntity<>("entreprise is create", HttpStatus.CREATED);
     }
-    @DeleteMapping(value = "/api/entreprise/delete/{id}")
+    @DeleteMapping(value = "/api/entreprises/delete/{id}")
 
     ResponseEntity<Object> deleteById(@PathVariable(name = "id") Long id) {
         EntrepriseVo found = entrepriseServiceImp.getById(id);
@@ -51,7 +57,7 @@ public class EntrepriseRestController {
         entrepriseServiceImp.deleteById(id);
         return new ResponseEntity<>("delete",HttpStatus.ACCEPTED);
     }
-    @PutMapping(value = "/api/entreprise/update/{id}")
+    @PutMapping(value = "/api/entreprises/update/{id}")
 
     public ResponseEntity<Object> updatedevice(@PathVariable(name = "id") Long entrepriseId, @RequestBody EntrepriseVo entrepriseVo) {
         EntrepriseVo entrepriseVo1 = entrepriseServiceImp.getById(entrepriseId);
@@ -62,13 +68,13 @@ public class EntrepriseRestController {
         return new ResponseEntity<>("entreprise is updated successfully", HttpStatus.OK);
     }
 
-    @GetMapping(value = "/api/entreprise/sort/{nom}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "/api/entreprises/sort/{nom}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 
     public List<EntrepriseVo> sortBy(@PathVariable String nom) {
         return entrepriseServiceImp.sortBy(nom);
     }
 
-    @GetMapping("/api/entreprise/pagination/{pageid}/{size}")
+    @GetMapping("/api/entreprises/pagination/{pageid}/{size}")
 
     public List<EntrepriseVo> pagination(@PathVariable int pageid, @PathVariable int size, Model m) {
         return entrepriseServiceImp.findAll(pageid, size);
