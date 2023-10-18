@@ -19,12 +19,17 @@ public class DeviceRestController {
 
     IDeviceservices iDeviceservices;
 
-    @GetMapping(value = "/admin/device", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "/api/devices/count")
+    public long getCount(){
+        return iDeviceservices.getCount();
+    }
+
+    @GetMapping(value = "/api/devices/read", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 
     public List<DeviceVo> getAll() {
         return iDeviceservices.getAll();
     }
-    @GetMapping(value = "/admin/device2/{id}")
+    @GetMapping(value = "/api/devices/read/{id}")
     public ResponseEntity<Object> getDeviceById(@PathVariable(value = "id") Long deviceId) {
         DeviceVo deviceFound = iDeviceservices.getById(deviceId);
         if (deviceFound == null)
@@ -32,38 +37,48 @@ public class DeviceRestController {
         return new ResponseEntity<>(deviceFound, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/admin/device")
+    @PostMapping(value = "/api/devices/create")
     public ResponseEntity<Object> createDevice(@Valid @RequestBody DeviceVo deviceVo) {
         iDeviceservices.save(deviceVo);
         return new ResponseEntity<>("device is created successfully", HttpStatus.CREATED);
     }
-    @PutMapping(value = "/admin/device/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping(value = "/api/devices/update/{id}")
     public ResponseEntity<Object> updatedevice(@PathVariable(name = "id") Long deviceId, @RequestBody DeviceVo deviceVo) {
         DeviceVo deviceFound = iDeviceservices.getById(deviceId);
         if ( deviceFound== null)
             return new ResponseEntity<>("device doen't exist", HttpStatus.OK);
-        deviceVo.setNumSrie(deviceId);
+        deviceVo.setId(deviceId);
         iDeviceservices.save(deviceVo);
         return new ResponseEntity<>("device is updated successfully", HttpStatus.OK);
     }
-    @GetMapping(value = "/rest/sort/{modele}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "/api/devices/sort/{modele}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 
     public List<DeviceVo> sortBy(@PathVariable String modele) {
         return iDeviceservices.sortBy(modele);
     }
-    @GetMapping("/admin/pagination/{pageid}/{size}")
+    @GetMapping("/api/devices/pagination/{pageid}/{size}")
 
     public List<DeviceVo> pagination(@PathVariable int pageid, @PathVariable int size, Model m) {
         return iDeviceservices.findAll(pageid, size);
     }
-    @GetMapping("/admin/device/{marque}")
+    @GetMapping("/api/devices/read/marque/{marque}")
 
     public List<DeviceVo> findByMarque(@PathVariable(name = "marque") String marque) {
         return iDeviceservices.findByMarque(marque);
     }
+    @GetMapping("/api/devices/read/numSrie/{numSrie}")
 
-    @DeleteMapping(value = "/rest/device/{id}")
+    public List<DeviceVo> findbyNumSrie(@PathVariable(name = "numSrie") String numSrie) {
+        return iDeviceservices.getByNumSrie(numSrie);
+    }
+
+    @GetMapping(value = "/api/devices/read/modele/{modele}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    public List<DeviceVo> findByModele(@PathVariable(name = "modele") String modele) {
+        return iDeviceservices.findByModele(modele);
+    }
+
+
+    @DeleteMapping(value = "/api/devices/delete/{id}")
     public ResponseEntity<Object> deleteEmp(@PathVariable(name = "id") Long deviceId) {
         DeviceVo deviceFound = iDeviceservices.getById(deviceId);
         if (deviceFound == null)
@@ -72,7 +87,7 @@ public class DeviceRestController {
         return new ResponseEntity<>("device is deleted successsfully", HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/admin/device")
+    @DeleteMapping(value = "/api/devices/delete")
     public ResponseEntity<Object> deleteAll() {
         iDeviceservices.deleteAll();
         return new ResponseEntity<>("All devices are deleted successsfully", HttpStatus.OK);

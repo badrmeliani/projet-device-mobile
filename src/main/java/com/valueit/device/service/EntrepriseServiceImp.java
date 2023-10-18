@@ -1,12 +1,12 @@
 package com.valueit.device.service;
 
 import com.valueit.device.dao.EntrepriseRepository;
-import com.valueit.device.domaine.EntrepriseConverter;
-import com.valueit.device.domaine.EntrepriseVo;
-import com.valueit.device.domaine.UserVo;
-import com.valueit.device.service.IEntrepriseService;
+import com.valueit.device.domaine.*;
 import com.valueit.device.service.model.Entreprise;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +20,11 @@ public class EntrepriseServiceImp implements IEntrepriseService {
     public List<EntrepriseVo> getAll() {
         List<Entreprise> list = entrepriseRepository.findAll();
         return EntrepriseConverter.toListVo(list);
+    }
+
+    @Override
+    public long getCount() {
+        return entrepriseRepository.count();
     }
 
     @Override
@@ -50,6 +55,18 @@ public class EntrepriseServiceImp implements IEntrepriseService {
     @Override
     public List<EntrepriseVo> findByNameEntreprise(String name) {
         List<Entreprise> list = entrepriseRepository.findByNom(name);
+        return EntrepriseConverter.toListVo(list);
+    }
+
+    @Override
+    public List<EntrepriseVo> findAll(int pageId, int size) {
+        Page<Entreprise> list = entrepriseRepository.findAll(PageRequest.of(pageId,size));
+        return EntrepriseConverter.toListVo(list.getContent());
+    }
+
+    @Override
+    public List<EntrepriseVo> sortBy(String nom) {
+        List<Entreprise> list = entrepriseRepository.findAll(Sort.by(Sort.Direction.DESC,nom));
         return EntrepriseConverter.toListVo(list);
     }
 

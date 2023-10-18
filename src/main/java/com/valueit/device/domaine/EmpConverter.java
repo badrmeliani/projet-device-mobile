@@ -1,5 +1,6 @@
 package com.valueit.device.domaine;
 
+import com.valueit.device.service.model.Device;
 import com.valueit.device.service.model.Emp;
 import com.valueit.device.service.model.Role;
 import com.valueit.device.service.model.User;
@@ -15,6 +16,7 @@ public class EmpConverter {
         if (bo == null || bo.getId() == null)
             return null;
         EmpVo vo = new EmpVo();
+        vo.setId(bo.getId());
        vo.setUsername(bo.getUsername());
        vo.setPassword(bo.getPassword());
        vo.setRoles(RoleConverter.toVoList(bo.getRoles()));
@@ -25,6 +27,7 @@ public class EmpConverter {
         vo.setSalary(bo.getSalary());
         vo.setFonction(bo.getFonction());
         vo.setAuthorities(getAuthorities(bo.getRoles()));
+        vo.setEntreprise(EntrepriseConverter.toVo(bo.getEntreprise()));
         return vo;
     }
 
@@ -40,6 +43,7 @@ public class EmpConverter {
 
     public static Emp emp (EmpVo userVo) {
         Emp emp = new Emp();
+        emp.setId(userVo.getId());
         emp.setUsername(userVo.getUsername());
         emp.setPassword(userVo.getPassword());
         emp.setRoles(RoleConverter.toBoList(userVo.getRoles()));
@@ -49,8 +53,44 @@ public class EmpConverter {
         emp.setEnabled(userVo.getEnabled());
         emp.setSalary(userVo.getSalary());
         emp.setFonction(userVo.getFonction());
+        emp.setEntreprise(EntrepriseConverter.toBo(userVo.getEntreprise()));
+
 
         return  emp;
+    }
+    public static Emp tobe (EmpVo userVo) {
+        Emp emp = new Emp();
+        emp.setId(userVo.getId());
+        if (userVo.getUsername() != null) {
+            emp.setUsername(userVo.getUsername());
+        }
+        if (userVo.getPassword() != null) {
+            emp.setPassword(userVo.getPassword());
+        }
+        if (userVo.getRoles()!=null){
+            emp.setRoles(RoleConverter.toBoList(userVo.getRoles()));
+        }
+
+        if (userVo.getAccountNonExpired() != null) {
+            emp.setAccountNonExpired(userVo.getAccountNonExpired());
+        }
+        emp.setAccountNonLocked(userVo.isAccountNonLocked());
+        emp.setCredentialsNonExpired(userVo.isCredentialsNonExpired());
+        if ((userVo.getEnabled())!= null){
+            emp.setEnabled(userVo.getEnabled());
+        }
+        if (userVo.getSalary() !=null) {
+            emp.setSalary(userVo.getSalary());
+        }
+        if (userVo.getFonction() !=null){
+            emp.setFonction(userVo.getFonction());
+        }
+        if (userVo.getEntreprise()!=null){
+            emp.setEntreprise(EntrepriseConverter.toBo(userVo.getEntreprise()));
+        }
+
+        return  emp;
+
     }
 
     public static List<EmpVo> toListVo(List<Emp> listBo) {

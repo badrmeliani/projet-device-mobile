@@ -1,0 +1,8 @@
+
+Q	java:S125"<This block of commented-out lines of code should be removed.(ÏĞš™
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(ïÚïşÿÿÿÿ
+V	java:S125)"<This block of commented-out lines of code should be removed.(‰Ê¾Ìüÿÿÿÿ
+]
+java:S1128"GRemove this unused import 'com.valueit.device.service.model.Privilege'.(È°Š
+f
+java:S1128	"KRemove this unused import 'org.springframework.security.core.parameters.P'.(Æ­Åıÿÿÿÿ

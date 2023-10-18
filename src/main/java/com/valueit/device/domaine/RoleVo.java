@@ -17,14 +17,6 @@ public class RoleVo {
     private String role;
     private List<PrivilegeVo> privileges = new ArrayList<>();
 
-//    public RoleVo(String role) {
-//        this.role = role;
-//    }
-
-//    public RoleVo( String role) {
-//
-//        this.role = role;
-//    }
 
 
 

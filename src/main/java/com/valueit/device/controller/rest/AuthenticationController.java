@@ -7,6 +7,7 @@ import com.valueit.device.jwt.JwtUtils;
 import com.valueit.device.service.IUserService;
 import com.valueit.device.service.exception.BusinessException;
 import com.valueit.device.service.model.Privilege;
+import com.valueit.device.service.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -29,6 +31,9 @@ public class AuthenticationController {
     AuthenticationManager authenticationManager;
 
     @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
     private IUserService userService;
 
     @Autowired
@@ -40,10 +45,17 @@ public class AuthenticationController {
 
         try {
 
-           UserVo userVo1 =  userService.findByUsername(userVo.getUsername());
+            UserVo userVo1 = userService.findByUsername(userVo.getUsername());
+
             if (!userVo1.isEnabled()) {
                 throw new Exception("user not enable");
             }
+//            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//
+//            // Hash the password
+//            String hashedPassword = encoder.encode(userVo.getPassword());
+//            System.out.println("Hashed Password: " + hashedPassword);
+//            // Now, 'hashedPassword' contains the hashed version of the user's password.
 
             Authentication authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(userVo.getUsername(), userVo.getPassword()));
@@ -53,13 +65,7 @@ public class AuthenticationController {
             TokenVo tokenVo = new TokenVo();
             tokenVo.setJwttoken(jwt);
             tokenVo.setUsername(userVo.getUsername());
-            //Collection<? extends GrantedAuthority> list = authentication.getAuthorities();
 
-
-
-//            list.forEach(grantedAuthority -> userVo.getRoles());
-            //list.forEach(authorite -> tokenVo.getRoles().add(authorite.getAuthority()));
-//            tokenVo.getRoles().add(authentication.getAuthorities().stream().collect(Collectors.toList()).get(0).toString());
             tokenVo.setRole(authentication.getAuthorities().stream().collect(Collectors.toList()).get(0).toString());
 
 //

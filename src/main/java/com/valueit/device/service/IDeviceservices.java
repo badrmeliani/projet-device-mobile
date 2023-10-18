@@ -7,8 +7,14 @@ import java.util.List;
 
 public interface IDeviceservices {
     List<DeviceVo> getAll();
+
+    long getCount();
+
     Device save(DeviceVo deviceVo);
+    List<DeviceVo> getByNumSrie(String numSrie);
+
     DeviceVo getById(Long id);
+
     List<DeviceVo> findByMarque(String marque);
     List<DeviceVo> findByModele(String modele);
     void deleteById(Long id);

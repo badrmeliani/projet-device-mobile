@@ -3,6 +3,7 @@ package com.valueit.device.domaine;
 import com.valueit.device.service.model.Entreprise;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class EntrepriseConverter {
@@ -13,16 +14,35 @@ public class EntrepriseConverter {
         entrepriseVo.setAdresse(entreprise.getAdresse());
         entrepriseVo.setCapitale(entreprise.getCapitale());
         entrepriseVo.setFondateur(entreprise.getFondateur());
+        entrepriseVo.setSecteur(entreprise.getSecteur());
+        entrepriseVo.setDate_creation(entreprise.getDate_creation());
+
         return entrepriseVo;
     }
 
     public static Entreprise toBo(EntrepriseVo entrepriseVo) {
         Entreprise entreprise1 = new Entreprise();
         entreprise1.setId(entrepriseVo.getId());
-        entreprise1.setNom(entrepriseVo.getNom());
-        entreprise1.setAdresse(entrepriseVo.getAdresse());
+        if(entrepriseVo.getNom() != null) {
+            entreprise1.setNom(entrepriseVo.getNom());
+        }
+        if (entrepriseVo.getAdresse() != null) {
+            entreprise1.setAdresse(entrepriseVo.getAdresse());
+        }
         entreprise1.setCapitale(entrepriseVo.getCapitale());
-        entreprise1.setFondateur(entrepriseVo.getFondateur());
+
+        if (entrepriseVo.getFondateur() !=null) {
+            entreprise1.setFondateur(entrepriseVo.getFondateur());
+        }
+        if (entrepriseVo.getSecteur() !=null){
+            entreprise1.setSecteur(entrepriseVo.getSecteur());
+        }
+        if (entrepriseVo.getDate_creation() != null) {
+            entreprise1.setDate_creation(entrepriseVo.getDate_creation());
+        } else {
+            entreprise1.setDate_creation(new Date());
+        }
+
         return entreprise1;
     }
 
