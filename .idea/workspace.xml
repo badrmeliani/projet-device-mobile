@@ -4,7 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="update different things to fit the front end" />
+    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="fixed backend to work properly with front">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DetailEmpConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DetailEmpVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/197aaf37e5573c5515e525bf84bdef34c36ea55a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1cab99061b54d690e0db6329f112566f46708cdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/f/2f065091f2e136c1a1038dfff682d9aed2e05019" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3a9d09a16eaa1dbe06aa3865f0ec7bd73d7f2491" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43172655a39c094219844b4abd6a2924219b6340" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5f97bd36665a748c6d085e8ef804726880319b5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/96c4dfdeb10781f4f7fdce266eec35a571697b22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5f9be4eb427d802aaf38105601f10564275e1af" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/d/ada2930c2399ff14cfe52d3ad3a3e8fc383375fd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/5/d5bf7250d5b7175c2fc22f7d9a34257dad7d44a2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/d/dd8a46fe48cb2a4672a3a0f6ade7c1b3690dd8c4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/9/197aaf37e5573c5515e525bf84bdef34c36ea55a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/c/1cab99061b54d690e0db6329f112566f46708cdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/f/2f065091f2e136c1a1038dfff682d9aed2e05019" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/a/3a9d09a16eaa1dbe06aa3865f0ec7bd73d7f2491" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/3/43172655a39c094219844b4abd6a2924219b6340" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/f/5f97bd36665a748c6d085e8ef804726880319b5f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/6/96c4dfdeb10781f4f7fdce266eec35a571697b22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/5/a5f9be4eb427d802aaf38105601f10564275e1af" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/d/ada2930c2399ff14cfe52d3ad3a3e8fc383375fd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/5/d5bf7250d5b7175c2fc22f7d9a34257dad7d44a2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/d/dd8a46fe48cb2a4672a3a0f6ade7c1b3690dd8c4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/EmpRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/EmpRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +78,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2Nv2ePnUPeR5z8hZFYry5AOJoam" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -73,6 +112,10 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.valueit" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.valueit.device.service" />
+      <recent name="com.valueit.device.domaine" />
     </key>
   </component>
   <component name="RunManager" selected="Application.DeviceApplication">
@@ -262,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695859592148</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fixed backend to work properly with front">
+      <created>1697594917821</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697594917821</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -302,35 +352,36 @@
     <MESSAGE value="entreprise tests all good" />
     <MESSAGE value="update entreprise test" />
     <MESSAGE value="update different things to fit the front end" />
-    <option name="LAST_COMMIT_MESSAGE" value="update different things to fit the front end" />
+    <MESSAGE value="fixed backend to work properly with front" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed backend to work properly with front" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/DeviceRestController.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/DeviceServicesImp.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceConverter.java</url>
           <line>20</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EntrepriseConverter.java</url>
           <line>23</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="8" />
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/DeviceRestController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpServiceImpl.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

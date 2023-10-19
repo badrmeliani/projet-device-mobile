@@ -11,6 +11,7 @@ import com.valueit.device.service.model.Privilege;
 import com.valueit.device.service.model.User;
 import com.valueit.device.service.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -70,40 +71,49 @@ public class UserServiceImp implements IUserService {
 
     @Override
     public void save(EmpVo empVo) {
-        Emp emp = EmpConverter.emp(empVo);
-        emp.setPassword(passwordEncoder.encode(empVo.getPassword()));
-        userRepository1.save(emp);
+        Emp emp = empRepository.getById(empVo.getId());
+        emp = EmpConverter.toEmp(empVo, emp);
+        empRepository.save(emp);
     }
 
     @Override
-
-    public void save(UserVo vo) {
-        User bo = UserConverter.toBo(vo);
-        String plainPassword = vo.getPassword();
-        String encodedPassword = passwordEncoder.encode(plainPassword);
-        bo.setPassword(encodedPassword);
-
-        List<Role> roleList = new ArrayList<>();
-        bo.getRoles().forEach(r -> {
-            Role rolePersist = roleRepository.findByRole(r.getRole());
-            List<Privilege> privilegeList = new ArrayList<>();
-            if (rolePersist == null) {
-                r.getPrivileges().forEach(p -> {
-                    Privilege privilegePersist = privilegeRepository.findByPrivilege(p.getPrivilege());
-                    if (privilegePersist == null)
-                        privilegePersist = privilegeRepository.save(p);
-                    privilegeList.add(privilegePersist);
-
-                });
-                r.setPrivileges(privilegeList);
-                rolePersist = roleRepository.save(r);
-            }
-            roleList.add((Role) rolePersist);
-        });
-        bo.setRoles(roleList);
-        userRepository1.save(bo);
-
+    public void save(UserVo userVo) {
+        User user = UserConverter.toBo(userVo);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String hashedPassword = encoder.encode(userVo.getPassword());
+        user.setPassword(hashedPassword);
+//        user.setPassword(passwordEncoder.encode(userVo.getPassword()));
+        userRepository1.save(user);
     }
+
+//    @Override
+//    public void save(UserVo vo) {
+//        User bo = UserConverter.toBo(vo);
+//        String plainPassword = vo.getPassword();
+//        String encodedPassword = passwordEncoder.encode(plainPassword);
+//        bo.setPassword(encodedPassword);
+//
+//        List<Role> roleList = new ArrayList<>();
+//        bo.getRoles().forEach(r -> {
+//            Role rolePersist = roleRepository.findByRole(r.getRole());
+//            List<Privilege> privilegeList = new ArrayList<>();
+//            if (rolePersist == null) {
+//                r.getPrivileges().forEach(p -> {
+//                    Privilege privilegePersist = privilegeRepository.findByPrivilege(p.getPrivilege());
+//                    if (privilegePersist == null)
+//                        privilegePersist = privilegeRepository.save(p);
+//                    privilegeList.add(privilegePersist);
+//
+//                });
+//                r.setPrivileges(privilegeList);
+//                rolePersist = roleRepository.save(r);
+//            }
+//            roleList.add((Role) rolePersist);
+//        });
+//        bo.setRoles(roleList);
+//        userRepository1.save(bo);
+//
+//    }
 
      @Override
 

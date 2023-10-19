@@ -1,9 +1,7 @@
 package com.valueit.device.domaine;
 
-import com.valueit.device.service.model.Device;
 import com.valueit.device.service.model.Emp;
 import com.valueit.device.service.model.Role;
-import com.valueit.device.service.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -11,20 +9,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class EmpConverter {
-    public static EmpVo toVo(Emp bo) {
+public class DetailEmpConverter {
+    public static DetailEmpVo toVo(Emp bo) {
         if (bo == null || bo.getId() == null)
             return null;
-        EmpVo vo = new EmpVo();
+        DetailEmpVo vo = new DetailEmpVo();
         vo.setId(bo.getId());
        vo.setUsername(bo.getUsername());
-//       vo.setPassword(bo.getPassword());
-//       vo.setRoles(RoleConverter.toVoList(bo.getRoles()));
-//        vo.setAccountNonExpired(bo.isAccountNonExpired());
-//        vo.setAccountNonLocked(bo.isAccountNonLocked());
-//        vo.setCredentialsNonExpired(bo.isCredentialsNonExpired());
-//        vo.setEnabled(bo.isEnabled());
-//        vo.setAuthorities(getAuthorities(bo.getRoles()));
+       vo.setPassword(bo.getPassword());
+       vo.setRoles(RoleConverter.toVoList(bo.getRoles()));
+        vo.setAccountNonExpired(bo.isAccountNonExpired());
+        vo.setAccountNonLocked(bo.isAccountNonLocked());
+        vo.setCredentialsNonExpired(bo.isCredentialsNonExpired());
+        vo.setEnabled(bo.isEnabled());
+        vo.setAuthorities(getAuthorities(bo.getRoles()));
         vo.setSalary(bo.getSalary());
         vo.setFonction(bo.getFonction());
 
@@ -42,16 +40,16 @@ public class EmpConverter {
         return springSecurityAuthorities;
     }
 
-    public static Emp emp (EmpVo empVo) {
+    public static Emp emp (DetailEmpVo empVo) {
         Emp emp = new Emp();
         emp.setId(empVo.getId());
-//        emp.setUsername(empVo.getUsername());
-//        emp.setPassword(empVo.getPassword());
-//        emp.setRoles(RoleConverter.toBoList(empVo.getRoles()));
-//        emp.setAccountNonExpired(empVo.getAccountNonExpired());
-//        emp.setAccountNonLocked(empVo.isAccountNonLocked());
-//        emp.setCredentialsNonExpired(empVo.isCredentialsNonExpired());
-//        emp.setEnabled(empVo.getEnabled());
+        emp.setUsername(empVo.getUsername());
+        emp.setPassword(empVo.getPassword());
+        emp.setRoles(RoleConverter.toBoList(empVo.getRoles()));
+        emp.setAccountNonExpired(empVo.getAccountNonExpired());
+        emp.setAccountNonLocked(empVo.isAccountNonLocked());
+        emp.setCredentialsNonExpired(empVo.isCredentialsNonExpired());
+        emp.setEnabled(empVo.getEnabled());
         emp.setSalary(empVo.getSalary());
         emp.setFonction(empVo.getFonction());
         emp.setEntreprise(EntrepriseConverter.toBo(empVo.getEntreprise()));
@@ -59,27 +57,27 @@ public class EmpConverter {
 
         return  emp;
     }
-    public static Emp tobe (EmpVo empVo) {
+    public static Emp tobe (DetailEmpVo empVo) {
         Emp emp = new Emp();
         emp.setId(empVo.getId());
-//        if (empVo.getUsername() != null) {
-//            emp.setUsername(empVo.getUsername());
-//        }
-//        if (empVo.getPassword() != null) {
-//            emp.setPassword(empVo.getPassword());
-//        }
-//        if (empVo.getRoles()!=null){
-//            emp.setRoles(RoleConverter.toBoList(empVo.getRoles()));
-//        }
-//
-//        if (empVo.getAccountNonExpired() != null) {
-//            emp.setAccountNonExpired(empVo.getAccountNonExpired());
-//        }
-//        emp.setAccountNonLocked(empVo.isAccountNonLocked());
-//        emp.setCredentialsNonExpired(empVo.isCredentialsNonExpired());
-//        if ((empVo.getEnabled())!= null){
-//            emp.setEnabled(empVo.getEnabled());
-//        }
+        if (empVo.getUsername() != null) {
+            emp.setUsername(empVo.getUsername());
+        }
+        if (empVo.getPassword() != null) {
+            emp.setPassword(empVo.getPassword());
+        }
+        if (empVo.getRoles()!=null){
+            emp.setRoles(RoleConverter.toBoList(empVo.getRoles()));
+        }
+
+        if (empVo.getAccountNonExpired() != null) {
+            emp.setAccountNonExpired(empVo.getAccountNonExpired());
+        }
+        emp.setAccountNonLocked(empVo.isAccountNonLocked());
+        emp.setCredentialsNonExpired(empVo.isCredentialsNonExpired());
+        if ((empVo.getEnabled())!= null){
+            emp.setEnabled(empVo.getEnabled());
+        }
         if (empVo.getSalary() !=null) {
             emp.setSalary(empVo.getSalary());
         }
@@ -94,15 +92,15 @@ public class EmpConverter {
 
     }
 
-    public static List<EmpVo> toListVo(List<Emp> listBo) {
-        List<EmpVo> listVo = new ArrayList<>();
+    public static List<DetailEmpVo> toListVo(List<Emp> listBo) {
+        List<DetailEmpVo> listVo = new ArrayList<>();
         for (Emp emp : listBo) {
             listVo.add(toVo(emp));
         }
         return listVo;
     }
 
-    public static Emp toEmp(EmpVo empVo, Emp emp) {
+    public static Emp toEmp(DetailEmpVo empVo, Emp emp) {
         emp.setSalary(empVo.getSalary());
         emp.setFonction(empVo.getFonction());
         emp.setEntreprise(EntrepriseConverter.toBo(empVo.getEntreprise()));

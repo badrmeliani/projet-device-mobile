@@ -1,4 +1,0 @@
-
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­êÈÆùÿÿÿÿ8µ›ƒÑ³1
-t	java:S116"XRename this field "date_creation" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹É¨ø8½›ƒÑ³1
-b	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(­êÈÆùÿÿÿÿ8¿›ƒÑ³1
