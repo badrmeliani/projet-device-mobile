@@ -31,7 +31,12 @@ public class Entreprise {
 //  @PrimaryKeyJoinColumn
     private List<Device> devices;
 
-    public Entreprise(Long id, String nom, String adresse, int capitale, String fondateur, String secteur, Date date_creation, List<Device> devices) {
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "entreprise", cascade = {CascadeType.ALL})
+    @JsonManagedReference
+    private List<Emp> emps;
+
+    public Entreprise(Long id, String nom, String adresse, int capitale, String fondateur, String secteur, Date date_creation, List<Device> devices,List<Emp> emps
+) {
         this.id = id;
         this.nom = nom;
         this.adresse = adresse;
@@ -40,6 +45,7 @@ public class Entreprise {
         this.secteur = secteur;
         this.date_creation = date_creation;
         this.devices = devices;
+        this.emps  = emps;
     }
 
 

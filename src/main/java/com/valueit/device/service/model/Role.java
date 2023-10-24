@@ -6,6 +6,7 @@ package com.valueit.device.service.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -27,7 +28,8 @@ public class Role {
 
 private String role;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany//(cascade = CascadeType.ALL)
+    @Cascade(value = org.hibernate.annotations.CascadeType.DELETE_ORPHAN)
     @JoinTable(name = "role_privilege", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "privilege_id"))
     private List<Privilege> privileges = new ArrayList<>();
     @ManyToMany(mappedBy = "roles")

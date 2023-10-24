@@ -37,17 +37,16 @@ public class EmpRestController {
         return detailService.getDetailEmployees();
     }
 
-    @GetMapping(value = "/api/employees/read/{id}")
-    public ResponseEntity<Object> getEmpById(@PathVariable(value = "id") Long empVoId) {
+    @GetMapping(value = "/api/employees/read/{id}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<DetailEmpVo> getEmpById(@PathVariable(value = "id") Long empVoId) {
 //        EmpVo empVoFound = service.getEmpById(empVoId);
 //        if (empVoFound == null)
 //            return new ResponseEntity<>("Employee doesn't exist", HttpStatus.NOT_FOUND);
 //        return new ResponseEntity<>(empVoFound, HttpStatus.OK);
-
         DetailEmpVo detailEmpVoFound = detailService.getDetailEmpById(empVoId);
         if (detailEmpVoFound == null)
-            return new ResponseEntity<>("Employee doesn't exist", HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(detailEmpVoFound, HttpStatus.OK);
+            return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(detailEmpVoFound);
     }
 
     @GetMapping(value = "/api/employees/read/{username}")
@@ -60,16 +59,16 @@ public class EmpRestController {
         return service.getAllRoles();
      }
 
-    @GetMapping(value = "/api/employees/read/{fonction}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-    public List<EmpVo> findByFonction(@PathVariable String fonction) {
-        return service.findByFonction(fonction);
-    }
-
-    @GetMapping(value = "/api/employees/read/{salary}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-    public List<DetailEmpVo> findBySalary(@PathVariable Double salary) {
-//        return service.findBySalary(salary);
-        return detailService.findBySalary(salary);
-    }
+//    @GetMapping(value = "/api/employees/read/{fonction}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+//    public List<EmpVo> findByFonction(@PathVariable String fonction) {
+//        return service.findByFonction(fonction);
+//    }
+//
+//    @GetMapping(value = "/api/employees/read/{salary}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+//    public List<DetailEmpVo> findBySalary(@PathVariable Double salary) {
+////        return service.findBySalary(salary);
+//        return detailService.findBySalary(salary);
+//    }
 
     @PostMapping(value = "/api/employees/create")
     public ResponseEntity<Object> createEmp(@Valid @RequestBody DetailEmpVo detailEmpVo) {

@@ -10,6 +10,8 @@ public class DeviceConverter {
         DeviceVo deviceVo = new DeviceVo();
         deviceVo.setId(devices.getId());
         deviceVo.setNumSrie(devices.getNumSrie());
+        deviceVo.setLatitude(devices.getLatitude());
+        deviceVo.setLongitude(devices.getLongitude());
         deviceVo.setMarque(devices.getMarque());
         deviceVo.setModele(devices.getModele());
         deviceVo.setEntreprise(EntrepriseConverter.toVo(devices.getEntreprise()));
@@ -21,6 +23,8 @@ public class DeviceConverter {
         Device devices = new Device();
         devices.setId(deviceVo.getId());
         devices.setNumSrie(deviceVo.getNumSrie());
+        devices.setLatitude(deviceVo.getLatitude());
+        devices.setLongitude(deviceVo.getLongitude());
         devices.setMarque(deviceVo.getMarque());
         devices.setModele(deviceVo.getModele());
         if(deviceVo.getEntreprise() != null) {

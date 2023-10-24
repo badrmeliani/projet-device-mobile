@@ -1,6 +1,8 @@
 package com.valueit.device.domaine;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.valueit.device.service.Utils.CustomAuthorityDeserializer;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +29,7 @@ public class UserVo implements UserDetails {
     private Boolean enabled;
     private Boolean accountNonExpired;
 
+    @JsonDeserialize(using = CustomAuthorityDeserializer.class)
     private  Collection<? extends GrantedAuthority> authorities = new ArrayList<>();
     private   List<RoleVo> roles = new ArrayList<RoleVo>();
 

@@ -21,10 +21,14 @@ public class Emp extends User  {
     private String fonction;
 
 
-
-    @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne//(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "entreprise")
+    @JsonBackReference
     private Entreprise entreprise;
+
+//    @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+//    @JoinColumn(name = "entreprise")
+//    private Entreprise entreprise;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "emp", cascade = {CascadeType.ALL})
     @JsonManagedReference

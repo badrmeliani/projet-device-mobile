@@ -4,43 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="fixed backend to work properly with front">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DetailEmpConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DetailEmpVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/9/197aaf37e5573c5515e525bf84bdef34c36ea55a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1cab99061b54d690e0db6329f112566f46708cdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/f/2f065091f2e136c1a1038dfff682d9aed2e05019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3a9d09a16eaa1dbe06aa3865f0ec7bd73d7f2491" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43172655a39c094219844b4abd6a2924219b6340" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5f97bd36665a748c6d085e8ef804726880319b5f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/96c4dfdeb10781f4f7fdce266eec35a571697b22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5f9be4eb427d802aaf38105601f10564275e1af" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/d/ada2930c2399ff14cfe52d3ad3a3e8fc383375fd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/5/d5bf7250d5b7175c2fc22f7d9a34257dad7d44a2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/d/dd8a46fe48cb2a4672a3a0f6ade7c1b3690dd8c4" beforeDir="false" />
+    <list default="true" id="7c840c9d-4da1-4d40-8f5a-5428dd46dddd" name="Changes" comment="added detailEmpl to make Devices display without authority">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/LocateRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/LocationVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/ILocationServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/LocationServicesImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/Utils/CustomAuthorityDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/Utils/JsonObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/0551a50debb181d66ef08b32ad930f29c7a220c2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/5/0551a50debb181d66ef08b32ad930f29c7a220c2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/2/22cbe55b06d8e094d6724f18dc2175d5cbcfe628" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/2/22cbe55b06d8e094d6724f18dc2175d5cbcfe628" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a237c3d03f833f438fa821200cc42d0ddf069ef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3f94eea52bed27f04588e44eb1f90263bcb3b24f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/0/90841087a46ae5a21b4e1837692f3d59a2e8bcbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/e/9ea899ae28da5d48226233c6524b483ca31e8800" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/9/197aaf37e5573c5515e525bf84bdef34c36ea55a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/c/1cab99061b54d690e0db6329f112566f46708cdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/f/2f065091f2e136c1a1038dfff682d9aed2e05019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/a/3a9d09a16eaa1dbe06aa3865f0ec7bd73d7f2491" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/3/43172655a39c094219844b4abd6a2924219b6340" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/f/5f97bd36665a748c6d085e8ef804726880319b5f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/6/96c4dfdeb10781f4f7fdce266eec35a571697b22" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/5/a5f9be4eb427d802aaf38105601f10564275e1af" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/d/ada2930c2399ff14cfe52d3ad3a3e8fc383375fd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/5/d5bf7250d5b7175c2fc22f7d9a34257dad7d44a2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/d/dd8a46fe48cb2a4672a3a0f6ade7c1b3690dd8c4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/a/2a237c3d03f833f438fa821200cc42d0ddf069ef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/f/3f94eea52bed27f04588e44eb1f90263bcb3b24f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/0/90841087a46ae5a21b4e1837692f3d59a2e8bcbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/e/9ea899ae28da5d48226233c6524b483ca31e8800" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/configuration/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/EmpRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/EmpRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EmpVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/EmpVo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/UserServiceImp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/UserVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Emp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Entreprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Entreprise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/valueit/device/service/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/configuration/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/configuration/SecurityConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/EmpRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/controller/rest/EmpRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo$DeviceVoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo$DeviceVoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/DeviceVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserVo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/domaine/UserVo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device$DeviceBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device$DeviceBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Device.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Emp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Emp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Entreprise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Entreprise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/valueit/device/service/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +122,7 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.valueit.device.service" />
       <recent name="com.valueit.device.domaine" />
+      <recent name="com.valueit.device.controller.rest" />
     </key>
   </component>
   <component name="RunManager" selected="Application.DeviceApplication">
@@ -312,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697594917821</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added detailEmpl to make Devices display without authority">
+      <created>1697681853313</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1697681853313</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,35 +367,16 @@
     <MESSAGE value="update entreprise test" />
     <MESSAGE value="update different things to fit the front end" />
     <MESSAGE value="fixed backend to work properly with front" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed backend to work properly with front" />
+    <MESSAGE value="added detailEmpl to make Devices display without authority" />
+    <option name="LAST_COMMIT_MESSAGE" value="added detailEmpl to make Devices display without authority" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/DeviceConverter.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/domaine/EntrepriseConverter.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/controller/rest/DeviceRestController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/UserServiceImp.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/IDetailEmpServiceImpl.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="12" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/valueit/device/service/LocationServicesImp.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

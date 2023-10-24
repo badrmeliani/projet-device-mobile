@@ -58,6 +58,9 @@ public class IDetailEmpServiceImpl implements IDetailEmpService {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String hashedPassword = encoder.encode(detailEmpVo.getPassword());
         emp.setPassword(hashedPassword);
+        if(detailEmpVo.getEntreprise() != null){
+            emp.setEntreprise(EntrepriseConverter.toBo(detailEmpVo.getEntreprise()));
+        }
         userRepository.save(emp);
     }
 
